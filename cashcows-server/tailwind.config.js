@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         courier: ['"Courier New"', 'Courier', 'monospace'],
-        pixel: ['"Press Start 2P"', '"Courier New"', 'Courier', 'monospace']
+        pixel: ['"Press Start 2P"', '"Courier New"', 'Courier', 'monospace'],
+        awesome: ['"Font Awesome 5 Free"']
       },
       backgroundImage: {
         barn: 'url(/images/bg-barn.png)',
@@ -20,6 +21,12 @@ module.exports = {
         leaderboard: 'url(/images/bg-leaderboard.png)',
         member: 'url(/images/bg-member.png)',
         soon: 'url(/images/bg-soon.png)'
+      },
+      backgroundPosition: {
+        'center-left': 'center left'
+      },
+      backgroundSize: {
+        'h-full': 'auto 100%'
       }
     },
   },

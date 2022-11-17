@@ -5,7 +5,7 @@ import {
   NetworkNames, 
   NetworkConfig, 
   CrewSearchResultsFormat 
-} from 'modules/utils/types';
+} from 'modules/ui/types';
 
 import CrewData from 'data/crew.json';
 import GoerliConfig from 'data/ethereum.json';

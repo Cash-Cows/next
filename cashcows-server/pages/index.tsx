@@ -1,4 +1,4 @@
-import PanelPage from 'modules/utils/layouts/PanelPage';
+import PanelPage from 'modules/ui/layouts/PanelPage';
 import { Head, Body } from 'modules/static/Home';
 
 const Page = () => {

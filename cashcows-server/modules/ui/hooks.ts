@@ -13,7 +13,7 @@ import {
   MenuStates,
   Web3States,
   CrewDetailFormat
-} from 'modules/utils/types';
+} from 'modules/ui/types';
 
 export function usePanelMenus(): MenuStates {
   //remember main meny open/close states
