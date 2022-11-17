@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "setup": "node gifengine/scripts/config_layers.js",
+    "build": "node gifengine/scripts/build_collection.js"
+  },
+  "devDependencies": {
+    "@pinata/sdk": "1.1.24",
+    "axios": "0.26.1",
+    "bottleneck": "2.19.5",
+    "dotenv": "^14.2.0",
+    "canvas": "^2.8.0",
+    "form-data": "4.0.0",
+    "fs-extra": "10.0.1",
+    "gif-encoder-2": "1.0.5",
+    "giflossy": "3.0.41",
+    "glob": "7.2.3",
+    "ipfs-only-hash": "4.0.0"
+  }
+}
