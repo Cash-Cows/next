@@ -1,11 +1,9 @@
 import { ethers } from 'ethers';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { 
-  NetworkNames, 
-  NetworkConfig, 
-  CrewSearchResultsFormat 
-} from 'modules/ui/types';
+import { NetworkNames } from 'modules/web3/enums';
+import { NetworkConfig } from 'modules/web3/types';
+import { Metadata } from 'modules/ui/types';
 
 import CrewData from 'data/crew.json';
 import GoerliConfig from 'data/ethereum.json';
@@ -45,16 +43,14 @@ export default async function handler(
       });
   }
 
-  const provider = new ethers.providers.JsonRpcProvider(
-    config.chain_uri
-  );
+  const provider = new ethers.providers.JsonRpcProvider(config.rpc.http);
   const contract = new ethers.Contract(
     config.contracts.index.address, 
     config.contracts.index.abi, 
     provider
   );
 
-  const metadata = CrewData as CrewSearchResultsFormat;
+  const metadata = CrewData as Metadata;
   const results = (await contract.ownerTokens(
     config.contracts.crew.address, 
     address,

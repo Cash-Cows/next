@@ -1,75 +1,4 @@
-import type { ConfigOptions as Web3ModalConfigOptions } from '@web3modal/core';
-
-export enum NetworkNames { 
-  GOERLI = 'goerli', 
-  ETHEREUM = 'ethereum' 
-};
-
-export type ContractConfig = {
-  address: string,
-  type?: string, 
-  symbol?: string, 
-  decimals?: number, 
-  image?: string,
-  abi: Record<string, any>[]
-};
-
-export type NetworkConfig = {
-  chain_id: number,
-  chain_name: string,
-  chain_symbol: string,
-  chain_label: string,
-  chain_uri: string,
-  chain_marketplace: string,
-  chain_scanner: string,
-  contracts: Record<string, ContractConfig>
-};
-
-export type NetworkState = {
-  config: NetworkConfig,
-  change: Function
-};
-
-export type ModalState = {
-  config: Web3ModalConfigOptions,
-  opened: boolean,
-  open: Function,
-  close: Function
-};
-
-export type AccountState = {
-  info: {
-    address: string | '',
-    connector?: import("@wagmi/core").Connector<any, any, any> | undefined,
-    isConnecting?: boolean,
-    isReconnecting?: boolean,
-    isConnected?: boolean,
-    isDisconnected?: boolean,
-    status?: 'connecting' | 'reconnecting' | 'connected' | 'disconnected'
-  },
-  ready: boolean,
-  crew: CrewDetailFormat[]|null
-};
-
-export type Web3States = { 
-  network: NetworkState,
-  modal: ModalState,
-  account: AccountState
-};
-
-export type MenuStates = { 
-  main: { opened: boolean, toggle: Function }, 
-  user: { opened: boolean, toggle: Function } 
-};
-
-export type CollectionItemSummary = {
-  edition: number,
-  image: string,
-  tier: number,
-  rank: number
-};
-
-export type CrewDetailFormat = {
+export type RankedData = {
   edition: number,
   score: number,
   rank: number,
@@ -77,9 +6,99 @@ export type CrewDetailFormat = {
   attributes: Record<string, Record<string, string|number>>
 }
 
-export type CrewSearchResultsFormat = {
-  updated: 1667197887423,
-  supply: 4030,
+export type Metadata = {
+  updated: number,
+  supply: number,
   occurances: Record<string, Record<string, number>>
-  rows: CrewDetailFormat[]
+  rows: RankedData[]
+};
+
+export type FloorItem = {
+  market: {
+    floorAsk: {
+      id: string,
+      maker: string, 
+      price: { 
+        amount: {
+          decimal: number,
+          native: number,
+          raw: string,
+          usd: number
+        },
+        currency: { 
+          contract: string,
+          decimals: number
+          name: string,
+          symbol: string
+        }
+      },
+      source: { 
+        domain: string,
+        icon: string, 
+        id: string,
+        name: string, 
+        url: string,
+      },
+      validFrom: number,
+      validUntil: number
+    }
+  },
+  token: {
+    collection: {
+      id: string,
+      image: string,
+      name: string,
+      slug: string
+    },
+    contract: string,
+    description: string,
+    image: string,
+    isFlagged: boolean,
+    kind: string,
+    lastBuy: {
+      timestamp: number,
+      value: number 
+    },
+    lastFlagUpdate: string,
+    lastSell: {
+      timestamp: number,
+      value: number 
+    },
+    media: string|null,
+    name: string,
+    owner: string,
+    rarity: number,
+    rarityRank: number,
+    tokenId: string
+  }
+};
+
+export type PanelProps = {
+  main: {
+    opened: boolean,
+    toggle: Function
+  },
+  user: {
+    opened: boolean,
+    toggle: Function
+  }
+};
+
+export type PanelFormProps = {
+  mintAmount: number,
+  totalPrice: number,
+  addAmount: Function,
+  lessAmount: Function,
+  buyItems: Function
+};
+
+export type PanelSessionProps = {
+  crews: RankedData[],
+  loading: boolean
+};
+
+export type PanelPageProps = {
+  panel: PanelProps,
+  form: PanelFormProps,
+  session: PanelSessionProps
 };

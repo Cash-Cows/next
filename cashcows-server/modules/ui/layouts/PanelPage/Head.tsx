@@ -1,10 +1,8 @@
 import HTMLHead from 'next/head';
 
-type HeadProps = {
+const Head: React.FC<{
   children: React.ReactNode
-};
-
-const Head: React.FC<HeadProps> = ({ children }) => {
+}> = ({ children }) => {
   return (
     <HTMLHead>
       {children}

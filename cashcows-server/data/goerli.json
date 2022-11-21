@@ -1,11 +1,14 @@
 {
-  "chain_id": 5,
-  "chain_name": "goerli",
-  "chain_symbol": "ETH",
-  "chain_label": "Ethereum Testnet",
-  "chain_uri": "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-  "chain_marketplace": "https://testnets.opensea.io/assets",
-  "chain_scanner": "https://goerli.etherscan.io",
+  "id": 5,
+  "name": "goerli",
+  "symbol": "ETH",
+  "label": "Ethereum Testnet",
+  "marketplace": "https://testnets.opensea.io/assets",
+  "scanner": "https://goerli.etherscan.io",
+  "rpc": {
+    "http": "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+    "wss": "wss://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+  },
   "contracts": {
     "crew": {
       "address": "0x94EDC644f44D7ad7B85520af6895146d56856Da8",

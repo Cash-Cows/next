@@ -1,11 +1,14 @@
 {
-  "chain_id": 1,
-  "chain_name": "ethereum",
-  "chain_symbol": "ETH",
-  "chain_label": "Ethereum Mainnet",
-  "chain_uri": "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-  "chain_marketplace": "https://opensea.io/assets",
-  "chain_scanner": "https://etherscan.io",
+  "id": 1,
+  "name": "ethereum",
+  "symbol": "ETH",
+  "label": "Ethereum Mainnet",
+  "marketplace": "https://opensea.io/assets",
+  "scanner": "https://etherscan.io",
+  "rpc": {
+    "http": "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+    "wss": "wss://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+  },
   "contracts": {
     "crew": {
       "address": "0x1A371de4634c3DEBf7196A1EFc59e620aff0915F",

@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
-type MenuProps = {
+const MainMenu: React.FC<{
   open?: boolean,
   network?: string
-};
-
-const MainMenu: React.FC<MenuProps> = ({ network = 'ethereum', open = false }) => (
+}> = ({ network = 'ethereum', open = false }) => (
   <aside className={`flex flex-col w-full max-w-sm duration-200 absolute top-16 bottom-0 z-50 dark:bg-gray-900 ${open? 'left-0': '-left-96' }`}>
     <header className="dark:bg-gray-700">
       <Link className="block p-3 text-white border-b border-solid border-gray-900" href={`/${network}/crew`}>

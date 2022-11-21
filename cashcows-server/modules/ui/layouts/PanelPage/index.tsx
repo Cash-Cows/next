@@ -1,24 +1,32 @@
-import { Web3Modal } from '@web3modal/react';
-import { NetworkNames } from 'modules/ui/types';
-import { usePanelMenus, useWeb3 } from 'modules/ui/hooks';
+import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+
+import { useWeb3, NetworkNames } from 'modules/web3';
+
+import { usePanelPage } from '../../hooks';
+import notify from '../../notify';
 
 import Head from './Head';
 import Header from './Header';
 import MainMenu from './MainMenu';
 import UserMenu from './UserMenu';
 
-type PageProps = {
+const LayoutPanelPage: React.FC<{
   head?: React.FC,
   body?: React.FC,
-  network?: NetworkNames,
   children?: React.ReactNode
-};
+}> = props => {
+  const web3 = useWeb3(NetworkNames.ETHEREUM);
+  const { network, account, status } = web3;
+  
+  const panel = usePanelPage(account.address, network.config);
+  const { main, user } = panel.panel;
 
-const LayoutPanelPage: React.FC<PageProps> = props => {
-  //Hook: Manages the panel meny states
-  const { main, user } = usePanelMenus();
-  //Hook: Manages all the usable web3 states
-  const { network, modal, account } = useWeb3(props.network || NetworkNames.ETHEREUM);
+  useEffect(() => {
+    if (status.error) {
+      notify('error', status.error.message);
+    }
+  }, [status.error])
   
   return (
     <section className="dark font-courier relative w-full h-full overflow-hidden">
@@ -28,14 +36,14 @@ const LayoutPanelPage: React.FC<PageProps> = props => {
         toggleUserMenu={() => user.toggle()}
       />
       <MainMenu open={main.opened} />
-      <UserMenu open={user.opened} network={network} modal={modal} account={account} />
+      <UserMenu open={user.opened} web3={web3} panel={panel} />
       <>{props.body && (
         <section className="dark:bg-gray-800 dark:text-white py-2 absolute top-16 bottom-0 left-0 right-0">
           <props.body />
         </section>
       )}</>
       {props.children}
-      <Web3Modal config={modal.config} />
+      <ToastContainer />
     </section>
   )
 };
