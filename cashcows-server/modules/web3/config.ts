@@ -1,14 +1,12 @@
-//config
-import { networks, connectors } from 'project.config';
 //connectors
-import { InjectedConnector } from 'wagmi/connectors/injected';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 //providers
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from 'wagmi/providers/public';
-
+//config
+import { networks, connectors } from 'project.config';
 import { defaultChains, configureChains, createClient } from 'wagmi';
 
 //Configure chains & providers with whatever was set in the config.
@@ -36,8 +34,7 @@ const client = createClient({
   connectors: [
     new MetaMaskConnector({ chains }),
     new CoinbaseWalletConnector({ chains, options: connectors.coinbase }),
-    new WalletConnectConnector({ chains, options: connectors.walletconnect }),
-    //new InjectedConnector({ chains, options: connectors.injected })
+    new WalletConnectConnector({ chains, options: connectors.walletconnect })
   ],
   provider
 });

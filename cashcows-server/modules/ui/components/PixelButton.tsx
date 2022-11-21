@@ -1,20 +1,7 @@
-export enum PixelButtonTypes {
-  DEFAULT = 'default',
-  SUCCESS = 'success',
-  WARNING = 'warning'
-};
-
-export enum PixelButtonSizes {
-  NORMAL = 'normal',
-  LARGE = 'large'
-};
-
-export type PixelButtonProps = Record<string, any> & {
-  type?: PixelButtonTypes,
-  size?: PixelButtonSizes,
-  className?: string,
-  children: React.ReactNode
-};
+//types
+import type { PixelButtonProps } from '../types';
+//enums
+import { PixelButtonTypes, PixelButtonSizes } from '../enums';
 
 const PixelButton: React.FC<PixelButtonProps> = props => {
   const { 

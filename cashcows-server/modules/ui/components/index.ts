@@ -1,15 +1,5 @@
-import Alert, { AlertTypes, AlertLayouts } from './Alert';
-import Badge, { BadgeTypes, BadgeLayouts } from './Badge';
-import PixelButton, { PixelButtonTypes, PixelButtonSizes } from './PixelButton';
+import Alert from './Alert';
+import Badge from './Badge';
+import PixelButton from './PixelButton';
 
-export { 
-  Alert, 
-  AlertTypes, 
-  AlertLayouts, 
-  Badge, 
-  BadgeTypes, 
-  BadgeLayouts,
-  PixelButton,
-  PixelButtonTypes,
-  PixelButtonSizes
-};
+export { Alert, Badge, PixelButton };

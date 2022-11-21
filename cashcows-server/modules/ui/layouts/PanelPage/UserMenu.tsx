@@ -1,16 +1,16 @@
-import Link from 'next/link';
-
-import { 
-  Badge, 
-  BadgeTypes, 
-  PixelButton, 
-  PixelButtonSizes, 
-  PixelButtonTypes
-} from '../../components';
-
+//types
 import type { Connector } from 'wagmi';
 import type { Web3Props } from 'modules/web3/types';
 import type { PanelPageProps } from '../../types';
+//enums
+import { 
+  BadgeTypes, 
+  PixelButtonSizes, 
+  PixelButtonTypes 
+} from '../../enums';
+//components
+import Link from 'next/link';
+import { Badge, PixelButton } from '../../components';
 
 import { host } from '../../config';
 
@@ -67,12 +67,16 @@ const MenuDisconnected: React.FC<MenuProps> = props => {
 };
 
 const MenuConnected: React.FC<MenuProps> = props => {
+  //if crews are still loading
   if (props.panel.session.loading) {
+    //show loading
     return MenuLoading(props); 
-  } else if (!props.panel.session.crews.length)  {
+  //if wallet has no crews
+  } else if (!props.panel.session.crews.length) {
+    //show mint form
     return MenuMint(props);
   }
-
+  //show member section
   return MenuMember(props);
 };
 
@@ -128,6 +132,7 @@ const MenuMember: React.FC<MenuProps> = props => {
   const { web3, panel, open = false } = props;
   const { network } = web3;
 
+  //add badges to crews
   const items = panel.session.crews.map(row => {
     let badge = BadgeTypes.MUTED;
     if (row.rank < 100) {
@@ -181,6 +186,7 @@ const MenuMember: React.FC<MenuProps> = props => {
 }
 
 const UserMenu: React.FC<MenuProps> = props => {
+  //if wallet is connected
   if (props.web3.status.connected) {
     return MenuConnected(props);
   }

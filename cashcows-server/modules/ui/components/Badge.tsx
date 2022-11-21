@@ -1,22 +1,7 @@
-export enum BadgeTypes {
-  ERROR = 'error',
-  INFO = 'info',
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  MUTED = 'muted'
-};
-
-export enum BadgeLayouts {
-  SOLID = 'solid',
-  OUTLINE = 'outline'
-};
-
-export type BadgeProps = {
-  type?: BadgeTypes,
-  layout?: BadgeLayouts,
-  className?: string,
-  children: React.ReactNode
-};
+//types
+import type { BadgeProps } from '../types';
+//enums
+import { BadgeTypes, BadgeLayouts } from '../enums';
 
 const Badge: React.FC<BadgeProps> = props => {
   const { 

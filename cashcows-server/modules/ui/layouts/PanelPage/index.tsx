@@ -1,9 +1,9 @@
+//hooks
 import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
-
 import { useWeb3, NetworkNames } from 'modules/web3';
-
 import { usePanelPage } from '../../hooks';
+//components
+import { ToastContainer } from 'react-toastify';
 import notify from '../../notify';
 
 import Head from './Head';
@@ -16,12 +16,13 @@ const LayoutPanelPage: React.FC<{
   body?: React.FC,
   children?: React.ReactNode
 }> = props => {
+  //get all the aggregated web3 hooks
   const web3 = useWeb3(NetworkNames.ETHEREUM);
   const { network, account, status } = web3;
-  
+  //get all the aggregated panel hooks
   const panel = usePanelPage(account.address, network.config);
   const { main, user } = panel.panel;
-
+  //any time the error changes, notify it
   useEffect(() => {
     if (status.error) {
       notify('error', status.error.message);

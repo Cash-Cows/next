@@ -1,3 +1,12 @@
+import { 
+  AlertTypes, 
+  AlertLayouts, 
+  BadgeTypes, 
+  BadgeLayouts,
+  PixelButtonTypes,
+  PixelButtonSizes
+} from './enums';
+
 export type RankedData = {
   edition: number,
   score: number,
@@ -101,4 +110,25 @@ export type PanelPageProps = {
   panel: PanelProps,
   form: PanelFormProps,
   session: PanelSessionProps
+};
+
+export type AlertProps = {
+  type?: AlertTypes,
+  layout?: AlertLayouts,
+  className?: string,
+  children: React.ReactNode
+};
+
+export type BadgeProps = {
+  type?: BadgeTypes,
+  layout?: BadgeLayouts,
+  className?: string,
+  children: React.ReactNode
+};
+
+export type PixelButtonProps = Record<string, any> & {
+  type?: PixelButtonTypes,
+  size?: PixelButtonSizes,
+  className?: string,
+  children: React.ReactNode
 };

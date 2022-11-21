@@ -1,21 +1,7 @@
-export enum AlertTypes {
-  ERROR = 'error',
-  INFO = 'info',
-  SUCCESS = 'success',
-  WARNING = 'warning'
-};
-
-export enum AlertLayouts {
-  SOLID = 'solid',
-  OUTLINE = 'outline'
-};
-
-export type AlertProps = {
-  type?: AlertTypes,
-  layout?: AlertLayouts,
-  className?: string,
-  children: React.ReactNode
-};
+//types
+import type { AlertProps } from '../types';
+//enums
+import { AlertTypes, AlertLayouts } from '../enums';
 
 const Alert: React.FC<AlertProps> = props => {
   const { 

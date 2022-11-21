@@ -3,17 +3,38 @@ export enum NetworkNames {
   ETHEREUM = 'ethereum' 
 };
 
-export enum ChainTypes {
-  ETHEREUM = 'mainnet',
-  ETHEREUM_GOERLI = 'goerli',
-  SEPOLIA = 'sepolia',
-  OPTIMISM = 'optimism',
-  OPTIMISM_GOERLI = 'optimismGoerli',
-  POLYGON = 'polygon',
-  POLYGON_MUMBAI = 'polygonMumbai',
-  ARBITRUM = 'arbitrum',
-  ARBITRUM_GOERLI = 'arbitrumGoerli',
-  LOCALHOST = 'localhost',
-  HARDHAT = 'hardhat',
-  FOUNDRY = 'foundry'
-}
+export enum AlertTypes {
+  ERROR = 'error',
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning'
+};
+
+export enum AlertLayouts {
+  SOLID = 'solid',
+  OUTLINE = 'outline'
+};
+
+export enum BadgeTypes {
+  ERROR = 'error',
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+  MUTED = 'muted'
+};
+
+export enum BadgeLayouts {
+  SOLID = 'solid',
+  OUTLINE = 'outline'
+};
+
+export enum PixelButtonTypes {
+  DEFAULT = 'default',
+  SUCCESS = 'success',
+  WARNING = 'warning'
+};
+
+export enum PixelButtonSizes {
+  NORMAL = 'normal',
+  LARGE = 'large'
+};

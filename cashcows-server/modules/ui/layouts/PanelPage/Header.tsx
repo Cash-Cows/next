@@ -1,4 +1,6 @@
-import { MouseEventHandler } from 'react';
+//types
+import type { MouseEventHandler } from 'react';
+//global
 import Link from 'next/link';
 
 const Header: React.FC<{
