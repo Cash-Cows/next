@@ -129,6 +129,7 @@ export type BadgeProps = {
 export type PixelButtonProps = Record<string, any> & {
   type?: PixelButtonTypes,
   size?: PixelButtonSizes,
+  font?: string,
   className?: string,
   children: React.ReactNode
 };

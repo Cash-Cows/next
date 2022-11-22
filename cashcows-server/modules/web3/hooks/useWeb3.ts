@@ -6,29 +6,14 @@ import {
   useEnsAvatar,
   useEnsName,
 } from 'wagmi';
+import useNetwork from './useNetwork';
 
-import { networks } from './config';
-import { NetworkNames } from './enums';
-
-/**
- * Hook that updates network config when the network changes
- */
-export function useNetwork(defaultNetwork: NetworkNames = NetworkNames.ETHEREUM) {
-  const [ network, setNetwork ] = useState(
-    networks[defaultNetwork] || networks.ethereum
-  );
-
-  const change = (network: NetworkNames) => {
-    setNetwork(networks[network] || networks.ethereum)
-  };
-
-  return { network, change }
-}
+import { NetworkNames } from '../enums';
 
 /**
  * Hook that aggregates network, account, status, actions, connector states
  */
-export function useWeb3(defaultNetwork: NetworkNames = NetworkNames.ETHEREUM) {
+export default function useWeb3(defaultNetwork: NetworkNames = NetworkNames.ETHEREUM) {
   //network config state
   const { network, change } = useNetwork(defaultNetwork);
   //account states

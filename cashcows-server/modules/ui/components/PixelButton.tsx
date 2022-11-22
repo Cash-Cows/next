@@ -7,13 +7,14 @@ const PixelButton: React.FC<PixelButtonProps> = props => {
   const { 
     type = PixelButtonTypes.DEFAULT, 
     size = PixelButtonSizes.NORMAL, 
+    font = 'pixel',
     className = '',
     children 
   } = props;
 
   const styles = [
     'bg-repeat bg-center bg-h-full', 
-    'text-white inline-block font-pixel', 
+    `text-white inline-block font-${font}`, 
     'm-2 relative text-center',
     'before:bg-no-repeat before:bg-center-left before:block before:w-4',
     'before:content-[\' \'] before:bg-h-full before:h-full before:absolute',
