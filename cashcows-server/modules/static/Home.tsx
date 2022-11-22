@@ -1,4 +1,8 @@
-import HTMLHead from 'next/head'
+import HTMLHead from 'next/head';
+//enums
+import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
+//components
+import { PixelButton } from 'modules/ui/components';
 
 const Head = () => (
   <HTMLHead>
@@ -9,10 +13,29 @@ const Head = () => (
 );
 
 const Body = () => (
-  <main className="container max-w-4xl m-auto px-3">
-    <h1 className="text-3xl font-bold">
-      Welcome to <a href="https://nextjs.org">Next.js!</a>
-    </h1>
+  <main className="h-full relative">
+    <div className="absolute top-5 left-0 right-0 bottom-24 overflow-hidden">
+      <video className="w-full" autoPlay loop muted playsInline>
+        <source src="/media/home-teaser.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div className="lg:hidden flex justify-center text-center absolute top-5 left-0 right-0 bottom-24 overflow-hidden">
+      <img className="h-full w-auto max-w-none" src="/media/home-mobile-teaser.gif" />
+    </div>
+    <div className="flex justify-center text-center absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
+      <img className="h-full min-h-screen w-auto max-w-none" src="/images/stage.png" />
+    </div>
+    <div className="flex justify-center text-center absolute left-0 right-0 bottom-10 overflow-hidden">
+      <PixelButton 
+        type={PixelButtonTypes.WARNING} 
+        size={PixelButtonSizes.LARGE} 
+        onClick={() => (window.location.href = '/about')}
+        className="text-xs"
+      >
+        Learn More
+      </PixelButton>
+    </div>
   </main>
 );
 

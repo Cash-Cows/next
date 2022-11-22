@@ -39,7 +39,7 @@ const LayoutPanelPage: React.FC<{
       <MainMenu open={main.opened} />
       <UserMenu open={user.opened} web3={web3} panel={panel} />
       <>{props.body && (
-        <section className="dark:bg-gray-800 dark:text-white py-2 absolute top-16 bottom-0 left-0 right-0">
+        <section className="dark:bg-gray-800 dark:text-white absolute top-16 bottom-0 left-0 right-0">
           <props.body />
         </section>
       )}</>
