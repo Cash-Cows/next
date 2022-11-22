@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        courier: ['"Courier New"', 'Courier', 'monospace'],
-        pixel: ['"Press Start 2P"', '"Courier New"', 'Courier', 'monospace'],
+        courier: ['Courier', 'monospace'],
+        pixel: ['"Press Start 2P"', 'Courier', 'monospace'],
         awesome: ['"Font Awesome 5 Free"']
       },
       backgroundImage: {

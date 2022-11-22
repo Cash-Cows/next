@@ -1,4 +1,6 @@
+//types
 import type { NextApiRequest, NextApiResponse } from 'next';
+//others
 import axios from 'axios';
 
 type Data = {

@@ -6,7 +6,6 @@ import { usePanelPage } from '../../hooks';
 import { ToastContainer } from 'react-toastify';
 import notify from '../../notify';
 
-import Head from './Head';
 import Header from './Header';
 import MainMenu from './MainMenu';
 import UserMenu from './UserMenu';
@@ -49,6 +48,6 @@ const LayoutPanelPage: React.FC<{
   )
 };
 
-export { Head, Header, MainMenu, UserMenu };
+export { Header, MainMenu, UserMenu };
 
 export default LayoutPanelPage;

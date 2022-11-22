@@ -1,23 +1,23 @@
-import { ethers } from 'ethers';
+//types
 import type { NextApiRequest, NextApiResponse } from 'next';
-
+import type { NetworkConfig } from 'modules/web3/types';
+import type { Metadata } from 'modules/ui/types';
+//enums
 import { NetworkNames } from 'modules/web3/enums';
-import { NetworkConfig } from 'modules/web3/types';
-import { Metadata } from 'modules/ui/types';
-
+//data
 import CrewData from 'data/crew.json';
 import GoerliConfig from 'data/ethereum.json';
 import EthereumConfig from 'data/ethereum.json';
-
-type Data = {
-  error: boolean,
-  message?: string,
-  results?: number[]
-};
+//others
+import { ethers } from 'ethers';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{
+    error: boolean,
+    message?: string,
+    results?: number[]
+  }>
 ) {
   const { address, network = NetworkNames.ETHEREUM } = req.query;
   

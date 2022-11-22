@@ -1,15 +1,15 @@
+//types
 import type { NextApiRequest, NextApiResponse } from 'next';
+//others
 import axios from 'axios';
-
-type Data = {
-  error: boolean,
-  message?: string,
-  results?: any
-};
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{
+    error: boolean,
+    message?: string,
+    results?: any
+  }>
 ) {
   const path = `https://api.reservoir.tools/${(req.url as string).substring(15)}`;
   const options = {

@@ -1,14 +1,14 @@
+//types
 import type { NextApiRequest, NextApiResponse } from 'next';
+//others
 import axios from 'axios';
-
-type Data = {
-  error: boolean,
-  results: string
-};
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{
+    error: boolean,
+    results: string
+  }>
 ) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   const response = await axios.get(
