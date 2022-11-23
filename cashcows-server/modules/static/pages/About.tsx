@@ -31,12 +31,12 @@ const goals = [
 
 const Section1 = () => (
   <section className="bg-[#DEB273] bg-[url(/images/about/about-bg-treasure.gif)] bg-[length:1000px_auto] bg-bottom bg-repeat-x">
-    <div className="container m-auto px-4 py-24 flex">
-      <div>
+    <div className="container m-auto px-4 pt-12 pb-32 md:pt-24 md:flex">
+      <div className="max-w-sm m-auto">
         <img className="w-full" alt="Cash Cows Club NFTs" src="/images/about/brady-bunch.png" />
       </div>
-      <div className="pl-10 text-gray-800">
-        <Heading level="1" font="pixel" size="lg" color="black" className="uppercase">
+      <div className="md:pl-10 text-gray-800 text-center md:text-left">
+        <Heading level="1" font="pixel" size="lg" color="black" className="uppercase pt-5 md:pt-0">
           About Cash Cows Club
         </Heading>
         <p className="pt-5">
@@ -44,7 +44,7 @@ const Section1 = () => (
           wealth with every Cow holder. We have now evolved and aim to be 
           the next upcoming blue chip alpha NFT club.
         </p>
-        <ul className="list-disc pl-10 pt-2">
+        <ul className="md:list-disc md:pl-10 pt-2">
           <li className="pt-2">Hold 2 Earn: Real crypto &amp; $MILK</li>
           <li className="pt-2">Play 2 Mint: More NFTs the more you play</li>
           <li className="pt-2">CC0 Personal &amp; Commercial Rights</li>
@@ -89,8 +89,8 @@ const Section2 = ({ redeemed, unclaimed }: AboutBodyProps) => {
           <div className="flex items-center justify-center mx-auto my-10 w-full max-w-lg text-center">
             {goals.map(goal => (
               <aside key={goal.value} className={`${totalVolume > goal.value? '': ''} flex-shrink`}>
-                <img alt={`Goal ${goal.value}ETH`} src={goal.image} className={`${totalVolume <= goal.value? 'opacity-30': ''} inline w-14`} />
-                <Heading level="6" size="xs" color={totalVolume > goal.value? 'yellow-500': 'bg-gray-200'} className="p-3">{goal.value}ETH</Heading>
+                <img alt={`Goal ${goal.value}ETH`} src={goal.image} className={`${totalVolume <= goal.value? 'opacity-30': ''} inline w-10 sm:w-14`} />
+                <Heading level="6" size="xs" font="courier sm:font-pixel" color={totalVolume > goal.value? 'yellow-500': 'bg-gray-200'} className="p-2 sm:p-3">{goal.value}ETH</Heading>
                 <div className={`${totalVolume > goal.value? 'bg-[#F9AF00]': 'bg-gray-400'} h-5`}></div>
               </aside>
             ))}
@@ -115,7 +115,7 @@ const Section3 = () => {
             Designed for the Tycoon in mind. Earn $MILK, get LOOT, choose a 
             Hustle, buy a Crib, brag to your friends.
           </p>
-          <PaperBox className="p-4">
+          <PaperBox className="p-4 max-w-xl m-auto">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1500 1920" preserveAspectRatio="xMinYMin meet">
               <image width="1500" height="1920" xlinkHref="/images/map.png"></image>
               <a title="The Barn" onClick={open.barn} className="cursor-pointer">
@@ -201,8 +201,8 @@ const Section3 = () => {
 const Section4 = () => (
   <section className="bg-[#3D2C21] before:border-t-8 before:border-t-[#251205] before:bg-[url(/images/about/dirt-1.png)] before:bg-repeat-x before:content-[' '] before:block before:w-full before:h-10">
     <div className="container m-auto py-10">
-      <div className="flex justify-center pb-6">
-        <div className="basis-6/12 mx-2">
+      <div className="sm:flex justify-center">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             What is CC0?
           </Heading>
@@ -212,7 +212,7 @@ const Section4 = () => (
             purposes, all without asking permission.
           </p>
         </div>
-        <div className="basis-6/12 mx-2">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             What is the utility?
           </Heading>
@@ -224,8 +224,8 @@ const Section4 = () => (
           </p>
         </div>
       </div>
-      <div className="flex justify-center pb-6">
-        <div className="basis-6/12 mx-2">
+      <div className="sm:flex justify-center">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             How do I stake and earn rewards?
           </Heading>
@@ -233,20 +233,20 @@ const Section4 = () => (
             Rewards are passively earned, meaning you only need to hold the Cows.
           </p>
         </div>
-        <div className="basis-6/12 mx-2">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             How can I redeem my rewards?
           </Heading>
           <p className="pt-3 text-xs leading-6">
             Current holders of Cash Cows can redeem their reward in the
-            treasury or directly from the 
-            <a href="https://etherscan.io/address/0x837844a20cFe576057b58bcF6f1556BF6795FB2F" target="_blank">
+            treasury or directly from the &nbsp;
+            <a className="underline" href="https://etherscan.io/address/0x837844a20cFe576057b58bcF6f1556BF6795FB2F" target="_blank">
               contract</a>.
           </p> 
         </div>
       </div>
-      <div className="flex justify-center pb-6">
-        <div className="basis-6/12 mx-2">
+      <div className="sm:flex justify-center">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             If I sell my Cows can I still redeem?
           </Heading>
@@ -255,7 +255,7 @@ const Section4 = () => (
             to redeem its rewards (it passes to the new owner).
           </p> 
         </div>
-        <div className="basis-6/12 mx-2">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             What do I need to know before owning a Cow?
           </Heading>
@@ -264,8 +264,8 @@ const Section4 = () => (
           </p> 
         </div>
       </div>
-      <div className="flex justify-center pb-6">
-        <div className="basis-6/12 mx-2">
+      <div className="sm:flex justify-center">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             How do you fund this project?
           </Heading>
@@ -276,12 +276,12 @@ const Section4 = () => (
             the other utilities of the project.
           </p> 
         </div>
-        <div className="basis-6/12 mx-2">
+        <div className="basis-6/12 mx-3 pb-6">
           <Heading level="3" size="xs" className="leading-8">
             Can I see the contracts?
           </Heading>
           <p className="pt-3 text-xs leading-6">
-            In the <a href="/ethereum/opensource.html">contracts page</a>.
+            In the <a className="underline" href="/ethereum/opensource.html">contracts page</a>.
           </p>
         </div>
       </div>
