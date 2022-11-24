@@ -1,7 +1,7 @@
 //enums
 import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
 //components
-import { HTMLHead, PixelButton } from 'modules/ui/components';
+import { HTMLHead, PixelButton } from 'modules/ui';
 
 export const Head = () => (
   <HTMLHead>

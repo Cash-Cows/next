@@ -13,7 +13,6 @@ import UserMenu from './UserMenu';
 const LayoutPanelPage: React.FC<{
   chain?: string,
   head?: React.FC,
-  body?: React.FC,
   children?: React.ReactNode
 }> = props => {
   //get all the aggregated web3 hooks
@@ -38,12 +37,9 @@ const LayoutPanelPage: React.FC<{
       />
       <MainMenu open={main.opened} />
       <UserMenu open={user.opened} web3={web3} panel={panel} />
-      <>{props.body && (
-        <section className="dark:bg-gray-800 dark:text-white absolute top-16 bottom-0 left-0 right-0">
-          <props.body />
-        </section>
-      )}</>
-      {props.children}
+      <section className="dark:bg-gray-800 dark:text-white absolute top-16 bottom-0 left-0 right-0">
+        {props.children}
+      </section>
       <ToastContainer />
     </section>
   )

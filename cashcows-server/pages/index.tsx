@@ -1,8 +1,8 @@
-import PanelPage from 'modules/ui/layouts/PanelPage';
-import { Head, Body } from 'modules/home/Page';
+import { LayoutPanelPage } from 'modules/ui';
+import { Head, Body } from 'modules/home';
 
 const Page = () => (
-  <PanelPage head={Head} body={Body} />
+  <LayoutPanelPage head={Head}><Body /></LayoutPanelPage>
 );
 
 export default Page;

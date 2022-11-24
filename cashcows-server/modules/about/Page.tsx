@@ -11,7 +11,7 @@ import {
   Heading, 
   PaperBox,
   Modal
-} from 'modules/ui/components';
+} from 'modules/ui';
 //hooks
 import { useModals } from './hooks';
 //data
