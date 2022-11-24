@@ -1,4 +1,4 @@
-import { networks, client } from './config';
-import { useWeb3 } from './hooks';
 import { NetworkNames } from './enums';
-export { networks, client, NetworkNames, useWeb3 };
+import { networks, useWeb3, Web3Context, Web3Config } from './config';
+
+export { networks, useWeb3, NetworkNames, Web3Context, Web3Config };

@@ -8,7 +8,7 @@ const closed = {
   cribs: false
 };
 
-export default function useAboutModals() {
+export function useModals() {
   const [ toggles, setToggles ] = useState(closed);
   const open = {
     barn: () => setToggles(Object.assign({}, closed, { barn: true })),

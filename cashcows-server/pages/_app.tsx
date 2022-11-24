@@ -2,13 +2,12 @@ import '../styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
 
-import { WagmiConfig } from 'wagmi';
-import { client } from 'modules/web3';
+import { Web3Config } from 'modules/web3';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={client}>
+    <Web3Config>
       <Component {...pageProps} />
-    </WagmiConfig>
+    </Web3Config>
   );
 };

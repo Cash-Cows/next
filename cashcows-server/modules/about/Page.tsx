@@ -1,6 +1,6 @@
 //types
 import { GetServerSideProps } from 'next';
-import { AboutBodyProps } from '../types';
+import { PageProps } from './types';
 //enums
 import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
 //components
@@ -13,7 +13,7 @@ import {
   Modal
 } from 'modules/ui/components';
 //hooks
-import { useAboutModals } from '../hooks';
+import { useModals } from './hooks';
 //data
 import EthereumConfig from 'data/ethereum.json';
 //others
@@ -57,7 +57,7 @@ const Section1 = () => (
   </section>
 );
 
-const Section2 = ({ redeemed, unclaimed }: AboutBodyProps) => {
+const Section2 = ({ redeemed, unclaimed }: PageProps) => {
   //total sale is what the contract got times 10 (because 10% creators fee)
   const totalVolume = (unclaimed + redeemed) * 10;
   return (
@@ -103,7 +103,7 @@ const Section2 = ({ redeemed, unclaimed }: AboutBodyProps) => {
 };
 
 const Section3 = () => {
-  const { toggles, open, close } = useAboutModals();
+  const { toggles, open, close } = useModals();
   return (
     <>
       <section>
@@ -310,40 +310,34 @@ export const Head = () => (
   </HTMLHead>
 );
 
-//since we are accepting props in this page, we should be 
-//returning a functional compoent (component wrapper) 
-//instead of a react node
-export const Body = ({ redeemed, unclaimed }: AboutBodyProps) => {
-  //return a functional component
-  return () => (
-    <main className="h-full relative overflow-auto">
-      <Section1 />
-      <Section2 redeemed={redeemed} unclaimed={unclaimed}/>
-      <Section3 />
-      <Section4 />
-      <Script type='application/ld+json'>
-        {JSON.stringify({
-          "@context": "http://www.schema.org",
-          "@type": "Organization",
-          "name": "Cash Cows Club",
-          "url": "https://www.cashcows.club/about",
-          "logo": "https://www.cashcows.club/images/coin-cow.png",
-          "image": "images/banner/banner-about.png",
-          "description": "An upcoming blue chip alpha NFT club exploring sharing fortune in the Metaverse. Free mint a cash cow. Make icon memes. Earn loot.",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "0x1A371de4634c3DEBf7196A1EFc59e620aff0915F",
-            "addressLocality": "The Farm",
-            "addressRegion": "Farmland",
-            "postalCode": "17700",
-            "addressCountry": "Ethereum"
-          },
-          "openingHours": "Mo 08:00-18:00 Tu 08:00-18:00 We 08:00-18:00 Th 08:00-18:00 Fr 08:00-18:00"
-        }, null, 2)}
-      </Script>
-    </main>
-  );
-};
+export const Body: React.FC<PageProps> = ({ redeemed, unclaimed }) => (
+  <main className="h-full relative overflow-auto">
+    <Section1 />
+    <Section2 redeemed={redeemed} unclaimed={unclaimed}/>
+    <Section3 />
+    <Section4 />
+    <Script type='application/ld+json'>
+      {JSON.stringify({
+        "@context": "http://www.schema.org",
+        "@type": "Organization",
+        "name": "Cash Cows Club",
+        "url": "https://www.cashcows.club/about",
+        "logo": "https://www.cashcows.club/images/coin-cow.png",
+        "image": "images/banner/banner-about.png",
+        "description": "An upcoming blue chip alpha NFT club exploring sharing fortune in the Metaverse. Free mint a cash cow. Make icon memes. Earn loot.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "0x1A371de4634c3DEBf7196A1EFc59e620aff0915F",
+          "addressLocality": "The Farm",
+          "addressRegion": "Farmland",
+          "postalCode": "17700",
+          "addressCountry": "Ethereum"
+        },
+        "openingHours": "Mo 08:00-18:00 Tu 08:00-18:00 We 08:00-18:00 Th 08:00-18:00 Fr 08:00-18:00"
+      }, null, 2)}
+    </Script>
+  </main>
+);
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const provider = new ethers.providers.JsonRpcProvider(EthereumConfig.rpc.http);

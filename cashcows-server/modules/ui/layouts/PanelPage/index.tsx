@@ -1,6 +1,6 @@
 //hooks
 import { useEffect } from 'react';
-import { useWeb3, NetworkNames } from 'modules/web3';
+import { useWeb3 } from 'modules/web3';
 import { usePanelPage } from '../../hooks';
 //components
 import { ToastContainer } from 'react-toastify';
@@ -11,12 +11,13 @@ import MainMenu from './MainMenu';
 import UserMenu from './UserMenu';
 
 const LayoutPanelPage: React.FC<{
+  chain?: string,
   head?: React.FC,
   body?: React.FC,
   children?: React.ReactNode
 }> = props => {
   //get all the aggregated web3 hooks
-  const web3 = useWeb3(NetworkNames.ETHEREUM);
+  const web3 = useWeb3();
   const { network, account, status } = web3;
   //get all the aggregated panel hooks
   const panel = usePanelPage(account.address, network.config);
@@ -26,7 +27,7 @@ const LayoutPanelPage: React.FC<{
     if (status.error) {
       notify('error', status.error.message);
     }
-  }, [status.error])
+  }, [status.error]);
   
   return (
     <section className="dark font-courier relative w-full h-full overflow-hidden">
