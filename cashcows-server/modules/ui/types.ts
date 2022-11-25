@@ -112,6 +112,15 @@ export type PanelPageProps = {
   session: PanelSessionProps
 };
 
+export type HeadingProps = {
+  level?: string|number,
+  font?: string,
+  color?: string,
+  size?: string,
+  className?: string,
+  children?: React.ReactNode
+};
+
 export type AlertProps = {
   type?: AlertTypes,
   layout?: AlertLayouts,

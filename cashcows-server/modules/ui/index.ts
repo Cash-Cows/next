@@ -1,9 +1,16 @@
 import { 
   HTMLHead, 
+  Heading, 
+  H1, H2, H3, 
+  H4, H5, H6,
+  List, ListItem,
+  Link,
+  Blockquote,
+  Text,
+  Image,
   Alert, 
   Badge, 
   PixelButton,
-  Heading,
   PaperBox,
   Modal
 } from './components';
@@ -23,10 +30,15 @@ import notify from './notify';
 
 export {
   HTMLHead, 
+  Heading, H1, H2, H3, H4, H5, H6,
+  List, ListItem,
+  Link,
+  Blockquote,
+  Text,
+  Image,
   Alert, 
   Badge, 
   PixelButton,
-  Heading,
   PaperBox,
   Modal,
   usePanelMenus, 

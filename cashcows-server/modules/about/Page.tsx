@@ -1,6 +1,6 @@
 //types
-import { GetServerSideProps } from 'next';
-import { PageProps } from './types';
+import type { GetServerSideProps } from 'next';
+import type { PageProps } from './types';
 //enums
 import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
 //components

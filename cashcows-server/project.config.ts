@@ -1,14 +1,15 @@
 import GoerliConfig from 'data/goerli.json';
 import EthereumConfig from 'data/ethereum.json';
 
-const host = 'www.cashcows.club';
+export const host = 'www.cashcows.club';
+export const cdn = 'cdn.cashcows.club';
 
-const networks = {
+export const networks = {
   goerli: GoerliConfig,
   ethereum: EthereumConfig
 };
 
-const connectors = {
+export const connectors = {
   coinbase: { appName: 'CashCowsClub' },
   walletconnect: { qrcode: true },
   injected: {
@@ -17,7 +18,7 @@ const connectors = {
   }
 };
 
-const toast = {
+export const toast = {
   position: 'bottom-center',
   autoClose: 5000,
   hideProgressBar: false,
@@ -26,5 +27,3 @@ const toast = {
   draggable: true,
   theme: 'dark',
 };
-
-export { host, networks, connectors, toast };
