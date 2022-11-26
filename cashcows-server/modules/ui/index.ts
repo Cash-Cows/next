@@ -25,8 +25,6 @@ import {
 
 import LayoutPanelPage from './layouts/PanelPage';
 
-import { host, toast } from './config';
-
 import notify from './notify';
 
 export {
@@ -48,7 +46,5 @@ export {
   useMintForm, 
   usePanelPage,
   LayoutPanelPage,
-  host, 
-  toast,
   notify
 };

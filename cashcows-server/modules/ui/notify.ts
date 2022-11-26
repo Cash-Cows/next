@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { toast as config } from './config';
+import { toast as config } from 'project.config';
 
 import type { ToastOptions } from 'react-toastify';
 

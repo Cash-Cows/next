@@ -12,7 +12,7 @@ import {
 import Link from 'next/link';
 import { Badge, PixelButton } from '../../components';
 
-import { host } from '../../config';
+import { host, cdn } from 'project.config';
 
 type MenuProps = { 
   open?: boolean 
@@ -96,7 +96,7 @@ const MenuMint: React.FC<MenuProps> = ({ panel, open = false }) => {
       </header>
       <main className="flex flex-col flex-grow items-center justify-center">
         <div className="overflow-hidden px-16 pb-2">
-          <img className="w-full" src="/images/about/brady-bunch.png" />
+          <img className="w-full" src={`https://${cdn}/website/about/brady-bunch.png`} />
         </div>
         <h4 className="font-medium text-center uppercase text-white pb-2">How Many Cows?</h4>
         <div className="flex items-center">
@@ -112,7 +112,7 @@ const MenuMint: React.FC<MenuProps> = ({ panel, open = false }) => {
       <footer className="p-2 border-t border-solid dark:bg-gray-700 dark:border-gray-600">
         <div className="pb-2 flex items-center text-white uppercase">
           <span className="block flex-grow font-bold">Total</span>
-          <img className="h-6" src="/images/crypto/eth.png" />
+          <img className="h-6" src={`https://${cdn}/website/crypto/eth.png`} />
           <span>{totalPrice}</span>
         </div>
         <PixelButton 

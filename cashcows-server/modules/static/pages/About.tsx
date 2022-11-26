@@ -21,22 +21,16 @@ import { ethers } from 'ethers';
 import { toEther } from 'modules/web3/utils';
 
 const goals = [
-  { value: 10, image: '/images/badges/community/morgan_stanley.png' },
-  { value: 50, image: '/images/badges/community/wells_fargo.png' },
-  { value: 100, image: '/images/badges/community/bank_of_america.png' },
-  { value: 250, image: '/images/badges/community/citi.png' },
-  { value: 500, image: '/images/badges/community/jpmorgan.png' },
-  { value: 1000, image: '/images/badges/community/ethereum.png' },
+  { value: 10, image: `https://${cdn}/website/badges/community/morgan_stanley.png` },
+  { value: 50, image: `https://${cdn}/website/badges/community/wells_fargo.png` },
+  { value: 100, image: `https://${cdn}/website/badges/community/bank_of_america.png` },
+  { value: 250, image: `https://${cdn}/website/badges/community/citi.png` },
+  { value: 500, image: `https://${cdn}/website/badges/community/jpmorgan.png` },
+  { value: 1000, image: `https://${cdn}/website/badges/community/ethereum.png` },
 ];
 
 const Section1 = () => (
-  <section className={[
-    'bg-[#DEB273]',
-    `bg-[url(https://${cdn}/website/about/about-bg-treasure.gif)]`, 
-    'bg-[length:1000px_auto]',
-    'bg-bottom',
-    'bg-repeat-x'
-  ].join(' ')}>
+  <section className="bg-[#DEB273] bg-[length:1000px_auto] bg-treasure bg-bottom bg-repeat-x">
     <div className="container m-auto px-4 pt-12 pb-32 md:pt-24 md:flex">
       <div className="max-w-sm m-auto">
         <img className="w-full" alt="Cash Cows Club NFTs" src={`https://${cdn}/website/about/brady-bunch.png`} />
@@ -73,7 +67,7 @@ const Section2 = ({ redeemed, unclaimed }: AboutPageProps) => {
         'from-black via-black to-blue-900', 
         'before:border-t-8', 
         'before:border-t-[#251205]', 
-        `before:bg-[url(https://${cdn}/website/about/dirt-2.png)]`, 
+        `before:bg-dirt2`, 
         'before:bg-repeat-x', 
         `before:content-[' ']`, 
         'before:block', 
@@ -216,7 +210,7 @@ const Section3 = () => {
 };
 
 const Section4 = () => (
-  <section className="bg-[#3D2C21] before:border-t-8 before:border-t-[#251205] before:bg-[url(/images/about/dirt-1.png)] before:bg-repeat-x before:content-[' '] before:block before:w-full before:h-10">
+  <section className="bg-[#3D2C21] before:border-t-8 before:border-t-[#251205] before:bg-dirt1 before:bg-repeat-x before:content-[' '] before:block before:w-full before:h-10">
     <div className="container m-auto py-10">
       <div className="sm:flex justify-center">
         <div className="basis-6/12 mx-3 pb-6">
