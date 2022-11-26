@@ -150,7 +150,7 @@ const MenuMember: React.FC<MenuProps> = props => {
     <aside className={`flex flex-col w-full max-w-sm duration-200 absolute top-16 bottom-0 z-50 dark:bg-gray-900 ${open? 'right-0': '-right-96' }`}>
       <header className="bg-gray-700 flex items-center">
         <h3 className="flex-grow px-2 py-3 text-md text-yellow-500 font-pixel text-md uppercase">Choose a Cow</h3>
-        <Link className="text-white p-2" href={`/${network.config.name}/manage`}>
+        <Link className="text-white p-2" href={`/${network.config.name}/crew/manage`}>
           <i className="fas block fa-cog"></i>
         </Link>
       </header>

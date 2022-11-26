@@ -1,7 +1,8 @@
+//components
 import { LayoutPanelPage } from 'modules/ui';
-import { Home } from 'modules/static';
+import { Search } from 'modules/loot';
 
-const { Head, Body } = Home;
+const { Head, Body } = Search;
 
 const Page = () => (
   <LayoutPanelPage head={Head}><Body /></LayoutPanelPage>

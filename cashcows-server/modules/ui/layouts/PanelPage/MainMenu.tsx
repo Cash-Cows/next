@@ -18,7 +18,7 @@ const MainMenu: React.FC<{
         <i className="text-yellow-500 fas fa-fw fa-gem"></i>
         <span className="uppercase inline-block pl-2">Loot Store</span>
       </Link>
-      <Link className="block p-3 text-white border-b border-solid border-gray-900" href={`/${network}/memes`}>
+      <Link className="block p-3 text-white border-b border-solid border-gray-900" href={`/${network}/crew/memes`}>
         <i className="text-yellow-500 fas fa-fw fa-face-grin-tongue-wink"></i>
         <span className="uppercase inline-block pl-2">Meme Database</span>
       </Link>

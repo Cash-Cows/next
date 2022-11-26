@@ -1,8 +1,10 @@
 //types
-import type { LeaderboardProps } from 'modules/leaderboard/types';
+import type { LeaderboardProps } from 'modules/member/types';
 //components
 import { LayoutPanelPage } from 'modules/ui';
-import { Head, Body, getServerSideProps } from 'modules/leaderboard';
+import { Search } from 'modules/member';
+
+const { Head, Body, getServerSideProps } = Search;
 
 const Page: React.FC<LeaderboardProps> = props => (
   <LayoutPanelPage head={Head}><Body {...props} /></LayoutPanelPage>

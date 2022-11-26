@@ -1,10 +1,12 @@
 //types
-import type { PageProps } from 'modules/about/types';
+import type { AboutPageProps } from 'modules/static/types';
 //components
 import { LayoutPanelPage } from 'modules/ui';
-import { Head, Body, getServerSideProps } from 'modules/about';
+import { About } from 'modules/static';
 
-const Page: React.FC<PageProps> = props => (
+const { Head, Body, getServerSideProps } = About;
+
+const Page: React.FC<AboutPageProps> = props => (
   <LayoutPanelPage head={Head}><Body {...props} /></LayoutPanelPage>
 );
 

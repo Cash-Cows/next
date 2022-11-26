@@ -1,11 +1,11 @@
 //types
 import type { NetworkConfig } from 'modules/web3/types';
-import type { LeaderboardRow, LeaderboardProps } from './types';
+import type { LeaderboardRow, LeaderboardProps } from '../types';
 //enums
 import { PixelButtonTypes, PixelButtonSizes } from 'modules/ui/enums';
 //hooks
 import { useWeb3 } from 'modules/web3';
-import { useTabs, useAvatar } from './hooks';
+import { useTabs, useAvatar } from '../hooks';
 //components
 import Link from 'next/link';
 import { HTMLHead, H1, H2, PixelButton, TintedBox } from 'modules/ui';

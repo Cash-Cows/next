@@ -1,7 +1,7 @@
 import { LayoutPanelPage } from 'modules/ui';
-import { Home } from 'modules/static';
+import { Loot } from 'modules/game';
 
-const { Head, Body } = Home;
+const { Head, Body } = Loot;
 
 const Page = () => (
   <LayoutPanelPage head={Head}><Body /></LayoutPanelPage>

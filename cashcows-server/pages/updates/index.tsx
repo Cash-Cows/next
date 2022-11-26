@@ -1,9 +1,9 @@
 //type
-import type { PageProps } from 'modules/updates/types';
+import type { PageProps } from 'modules/blog/types';
 
 //components
 import { LayoutPanelPage } from 'modules/ui';
-import { Latest } from 'modules/updates';
+import { Latest } from 'modules/blog';
 
 const { Head, Body, getStaticProps } = Latest;
 

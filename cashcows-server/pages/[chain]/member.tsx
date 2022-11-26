@@ -1,7 +1,8 @@
+//components
 import { LayoutPanelPage } from 'modules/ui';
-import { Home } from 'modules/static';
+import { Detail } from 'modules/member';
 
-const { Head, Body } = Home;
+const { Head, Body } = Detail;
 
 const Page = () => (
   <LayoutPanelPage head={Head}><Body /></LayoutPanelPage>

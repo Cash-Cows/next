@@ -1,9 +1,9 @@
 //type
-import type { PageProps } from 'modules/updates/types';
+import type { PageProps } from 'modules/blog/types';
 
 //components
 import { LayoutPanelPage } from 'modules/ui';
-import { Post } from 'modules/updates';
+import { Post } from 'modules/blog';
 
 const { Head, Body, getStaticPaths, getStaticProps } = Post;
 

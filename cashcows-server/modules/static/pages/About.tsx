@@ -1,5 +1,5 @@
 //types
-import type { PageProps } from './types';
+import type { AboutPageProps } from '../types';
 //enums
 import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
 //components
@@ -12,7 +12,7 @@ import {
   Modal
 } from 'modules/ui';
 //hooks
-import { useModals } from './hooks';
+import { useAboutModals } from '../hooks';
 //config
 import { cdn, host } from 'project.config';
 import EthereumConfig from 'data/ethereum.json';
@@ -63,7 +63,7 @@ const Section1 = () => (
   </section>
 );
 
-const Section2 = ({ redeemed, unclaimed }: PageProps) => {
+const Section2 = ({ redeemed, unclaimed }: AboutPageProps) => {
   //total sale is what the contract got times 10 (because 10% creators fee)
   const totalVolume = (unclaimed + redeemed) * 10;
   return (
@@ -120,7 +120,7 @@ const Section2 = ({ redeemed, unclaimed }: PageProps) => {
 };
 
 const Section3 = () => {
-  const { toggles, open, close } = useModals();
+  const { toggles, open, close } = useAboutModals();
   return (
     <>
       <section>
@@ -326,7 +326,7 @@ export const Head = () => (
   </HTMLHead>
 );
 
-export const Body: React.FC<PageProps> = ({ redeemed, unclaimed }) => (
+export const Body: React.FC<AboutPageProps> = ({ redeemed, unclaimed }) => (
   <main className="h-full relative overflow-auto">
     <Section1 />
     <Section2 redeemed={redeemed} unclaimed={unclaimed}/>
