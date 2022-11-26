@@ -1,5 +1,4 @@
 //types
-import type { GetServerSideProps } from 'next';
 import type { PageProps } from './types';
 //enums
 import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
@@ -14,7 +13,8 @@ import {
 } from 'modules/ui';
 //hooks
 import { useModals } from './hooks';
-//data
+//config
+import { cdn, host } from 'project.config';
 import EthereumConfig from 'data/ethereum.json';
 //others
 import { ethers } from 'ethers';
@@ -30,10 +30,16 @@ const goals = [
 ];
 
 const Section1 = () => (
-  <section className="bg-[#DEB273] bg-[url(/images/about/about-bg-treasure.gif)] bg-[length:1000px_auto] bg-bottom bg-repeat-x">
+  <section className={[
+    'bg-[#DEB273]',
+    `bg-[url(https://${cdn}/website/about/about-bg-treasure.gif)]`, 
+    'bg-[length:1000px_auto]',
+    'bg-bottom',
+    'bg-repeat-x'
+  ].join(' ')}>
     <div className="container m-auto px-4 pt-12 pb-32 md:pt-24 md:flex">
       <div className="max-w-sm m-auto">
-        <img className="w-full" alt="Cash Cows Club NFTs" src="/images/about/brady-bunch.png" />
+        <img className="w-full" alt="Cash Cows Club NFTs" src={`https://${cdn}/website/about/brady-bunch.png`} />
       </div>
       <div className="md:pl-10 text-gray-800 text-center md:text-left">
         <Heading level="1" font="pixel" size="lg" color="black" className="uppercase pt-5 md:pt-0">
@@ -62,7 +68,18 @@ const Section2 = ({ redeemed, unclaimed }: PageProps) => {
   const totalVolume = (unclaimed + redeemed) * 10;
   return (
     <>
-      <section className="bg-gradient-to-b from-black via-black to-blue-900 before:border-t-8 before:border-t-[#251205] before:bg-[url(/images/about/dirt-2.png)] before:bg-repeat-x before:content-[' '] before:block before:w-full before:h-10">
+      <section className={[
+        'bg-gradient-to-b', 
+        'from-black via-black to-blue-900', 
+        'before:border-t-8', 
+        'before:border-t-[#251205]', 
+        `before:bg-[url(https://${cdn}/website/about/dirt-2.png)]`, 
+        'before:bg-repeat-x', 
+        `before:content-[' ']`, 
+        'before:block', 
+        'before:w-full', 
+        'before:h-10'
+      ].join(' ')}>
         <div className="container m-auto py-10">
           <Heading level="2" font="pixel" size="md" color="yellow-500" className="text-center">
             Community Achievements
@@ -74,14 +91,14 @@ const Section2 = ({ redeemed, unclaimed }: PageProps) => {
             <div className="mr-5">
               <h6 className="font-bold">Redeemed</h6>
               <PixelButton type={PixelButtonTypes.DEFAULT} size={PixelButtonSizes.NORMAL} font="courier" className="font-bold text-sm">
-                <img alt="ethereum logo" src="/images/crypto/eth.png" className="inline-block max-w-none w-5 mr-2" />
+                <img alt="ethereum logo" src={`https://${cdn}/website/crypto/eth.png`} className="inline-block max-w-none w-5 mr-2" />
                 <span className="text-gray-800">{redeemed}</span>
               </PixelButton>
             </div>
             <div className="ml-5">
               <h6 className="font-bold">Unclaimed</h6>
               <PixelButton type={PixelButtonTypes.DEFAULT} size={PixelButtonSizes.NORMAL} font="courier" className="font-bold text-sm">
-                <img alt="ethereum logo" src="/images/crypto/eth.png" className="inline-block max-w-none w-5 mr-2" />
+                <img alt="ethereum logo" src={`https://${cdn}/website/crypto/eth.png`} className="inline-block max-w-none w-5 mr-2" />
                 <span className="text-gray-800">{unclaimed}</span>
               </PixelButton>
             </div>
@@ -97,7 +114,7 @@ const Section2 = ({ redeemed, unclaimed }: PageProps) => {
           </div>
         </div>
       </section>
-      <section><img alt="farm" src="/images/about/farm.png" /></section>
+      <section><img alt="farm" src={`https://${cdn}/website/about/farm.png`} /></section>
     </>
   );
 };
@@ -117,7 +134,7 @@ const Section3 = () => {
           </p>
           <PaperBox className="p-4 max-w-xl m-auto">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1500 1920" preserveAspectRatio="xMinYMin meet">
-              <image width="1500" height="1920" xlinkHref="/images/map.png"></image>
+              <image width="1500" height="1920" xlinkHref={`https://${cdn}/website/map.png`}></image>
               <a title="The Barn" onClick={open.barn} className="cursor-pointer">
                 <rect x="300" y="1500" width="600" height="250" fill="#FFFFFF" opacity="0"></rect>
               </a>
@@ -138,7 +155,7 @@ const Section3 = () => {
         </div>
       </section>
       <Modal open={toggles.barn} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-          <img alt="the barn" src="/images/about/about-bg-barn.png" />
+          <img alt="the barn" src={`https://${cdn}/website/about/about-bg-barn.png`} />
           <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
             The Barn
           </Heading>
@@ -149,7 +166,7 @@ const Section3 = () => {
           </p>
       </Modal>
       <Modal open={toggles.market} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="farmers market" src="/images/about/about-bg-market.png" />
+        <img alt="farmers market" src={`https://${cdn}/website/about/about-bg-market.png`} />
         <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
           Farmers Market
         </Heading>
@@ -160,7 +177,7 @@ const Section3 = () => {
         </p>
       </Modal>
       <Modal open={toggles.loot} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="loot store" src="/images/about/about-bg-loot.png" />
+        <img alt="loot store" src={`https://${cdn}/website/about/about-bg-loot.png`} />
         <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
           Loot Store
         </Heading>
@@ -172,7 +189,7 @@ const Section3 = () => {
         </p>
       </Modal>
       <Modal open={toggles.hustle} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="the hustle" src="/images/about/about-bg-hustle.png" />
+        <img alt="the hustle" src={`https://${cdn}/website/about/about-bg-hustle.png`} />
         <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
           The Hustle
         </Heading>
@@ -183,7 +200,7 @@ const Section3 = () => {
         </p>
       </Modal>
       <Modal open={toggles.cribs} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="cash cows cribs" src="/images/about/about-bg-cribs.png" />
+        <img alt="cash cows cribs" src={`https://${cdn}/website/about/about-bg-cribs.png`} />
         <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
           Cribs
         </Heading>
@@ -293,20 +310,19 @@ export const Head = () => (
   <HTMLHead>
     <title>About Cash Cows Club</title>
     <meta name="description" content="An upcoming blue chip alpha NFT club exploring sharing fortune in the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
-    <link rel="canonical" href="https://www.cashcows.club/about" />
+    <link rel="canonical" href={`https://${host}/about`} />
     
     <meta property="og:title" content="About Cash Cows Club" />
     <meta property="og:description" content="An upcoming blue chip alpha NFT club exploring sharing fortune in the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
-    <meta property="og:image" content="https://www.cashcows.club/images/banner/banner-about.png" />
-    <meta property="og:url" content="https://www.cashcows.club/about" />
+    <meta property="og:image" content={`https://${cdn}/website/banner/banner-about.png`} />
+    <meta property="og:url" content={`https://${host}/about`} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@wearecashcows" />
     <meta name="twitter:title" content="About Cash Cows Club" />
     <meta name="twitter:description" content="An upcoming blue chip alpha NFT club exploring sharing fortune in the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
-
-    <meta name="twitter:image" content="https://www.cashcows.club/images/banner/banner-about.png" />
+    <meta name="twitter:image" content={`https://${cdn}/website/banner/banner-about.png`} />
   </HTMLHead>
 );
 
@@ -339,7 +355,7 @@ export const Body: React.FC<PageProps> = ({ redeemed, unclaimed }) => (
   </main>
 );
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps = async () => {
   const provider = new ethers.providers.JsonRpcProvider(EthereumConfig.rpc.http);
   const contract = new ethers.Contract(
     EthereumConfig.contracts.royalty.address, 

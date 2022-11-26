@@ -140,5 +140,6 @@ export type PixelButtonProps = Record<string, any> & {
   size?: PixelButtonSizes,
   font?: string,
   className?: string,
+  href?: string,
   children: React.ReactNode
 };

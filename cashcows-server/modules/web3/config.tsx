@@ -4,6 +4,7 @@ import type { Web3Props } from './types';
 import { NetworkNames } from './enums';
 //hooks
 import React, { useState, useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { 
   useAccount, 
   useConnect, 
@@ -116,6 +117,12 @@ export const Web3Provider: React.FC<{
   const [ loading, setLoading ] = useState(false);
   useEffect(() => { setLoading(isLoading) }, [isLoading]);
 
+  const router = useRouter();
+
+  useEffect(() => {
+    change(router.query.chain as NetworkNames || NetworkNames.ETHEREUM);
+  }, [router.query.chain]);
+
   return (
     <Web3Context.Provider value={{
       network: {
@@ -154,16 +161,13 @@ export const Web3Provider: React.FC<{
 export const Web3Config: React.FC<{
   chain?: NetworkNames,
   children?: React.ReactNode
-}> = ({ children, chain = NetworkNames.ETHEREUM }) => {
-  
-  return (
-    <WagmiConfig client={client}>
-      <Web3Provider chain={chain}>
-        {children}
-      </Web3Provider>
-    </WagmiConfig>
-  );
-};
+}> = ({ children, chain = NetworkNames.ETHEREUM }) => (
+  <WagmiConfig client={client}>
+    <Web3Provider chain={chain}>
+      {children}
+    </Web3Provider>
+  </WagmiConfig>
+);
 
 /**
  * Hook that updates network config when the network changes

@@ -1,7 +1,9 @@
 //types
 import type { MouseEventHandler } from 'react';
-//global
+//components
 import Link from 'next/link';
+//config
+import { cdn } from 'project.config';
 
 const Header: React.FC<{
   toggleMainMenu: MouseEventHandler,
@@ -13,10 +15,10 @@ const Header: React.FC<{
         <i className="fas fa-bars"></i>
       </button>
       <Link className="flex-grow" href="/">
-        <img alt="cash cows club logo" className="h-12 block" src="/images/logo-cashcows-long.gif" />
+        <img alt="cash cows club logo" className="h-12 block" src={`https://${cdn}/website/logo/logo-cashcows-long.gif`} />
       </Link>
       <button onClick={toggleUserMenu}>
-        <img alt="cash cows club user" className="h-10 block rounded-full" src="/images/icon-user.png" />
+        <img alt="cash cows club user" className="h-10 block rounded-full" src={`https://${cdn}/website/icon/icon-user.png`} />
       </button>
     </div>
   </header>

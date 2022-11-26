@@ -24,31 +24,31 @@ const Heading: React.FC<HeadingProps> = props => {
 export default Heading;
 
 export const H1: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="1" size="4xl" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="1" size="4xl" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };
 
 export const H2: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="2" size="3xl" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="2" size="3xl" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };
 
 export const H3: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="3" size="2xl" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="3" size="2xl" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };
 
 export const H4: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="4" size="xl" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="4" size="xl" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };
 
 export const H5: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="5" size="lg" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="5" size="lg" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };
 
 export const H6: React.FC<HeadingProps> = props => {
-  const {children, ...others} = props;
-  return <Heading level="6" size="md" className="mt-6 mb-3" {...others}>{children}</Heading>;
+  const {children, className, ...others} = props;
+  return <Heading level="6" size="md" className={`mt-6 mb-3 ${className}`.trim()} {...others}>{children}</Heading>;
 };

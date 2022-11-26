@@ -13,7 +13,7 @@ export function useModals() {
   const open = {
     barn: () => setToggles(Object.assign({}, closed, { barn: true })),
     market: () => setToggles(Object.assign({}, closed, { market: true })),
-    loot: () => setToggles(Object.assign({}, closed, { loor: true })),
+    loot: () => setToggles(Object.assign({}, closed, { loot: true })),
     hustle: () => setToggles(Object.assign({}, closed, { hustle: true })),
     cribs: () => setToggles(Object.assign({}, closed, { cribs: true }))
   };

@@ -1,11 +1,9 @@
-//types
-import type { NetworkNames } from 'modules/web3';
-import type { PageProps } from './types';
 //hooks
 import { useWeb3 } from 'modules/web3';
-import { useEffect } from 'react';
 //components
 import { HTMLHead, Heading } from 'modules/ui';
+//config
+import { cdn, host } from 'project.config';
 
 const Section1 = () => (
   <section className="max-w-3xl m-auto pt-10">
@@ -18,13 +16,10 @@ const Section1 = () => (
   </section>
 );
 
-const Section2: React.FC<PageProps> = ({ chain }) => {
+const Section2 = () => {
   const { network } = useWeb3();
   const config = network.config;
   const contracts = config.contracts;
-  useEffect(() => {
-    network.change(chain as NetworkNames);
-  });
   return (
     <section className="max-w-3xl m-auto py-5">
       <Heading level="2" className="pb-5 pl-5">Smart Contracts</Heading>
@@ -191,12 +186,12 @@ export const Head = () => (
   <HTMLHead>
     <title>Open Source Initiative | Cash Cows Club</title>
     <meta name="description" content="The first full featured open source NFT collection found on GitHub and Ethereum" />
-    <link rel="canonical" href="https://www.cashcows.club/ethereum/opensource" />
+    <link rel="canonical" href={`https://${host}/ethereum/opensource`} />
     
     <meta property="og:title" content="Open Source Initiative | Cash Cows Club" />
     <meta property="og:description" content="The first full featured open source NFT collection found on GitHub and Ethereum" />
-    <meta property="og:image" content="https://www.cashcows.club/images/banner/banner-opensource.png" />
-    <meta property="og:url" content="https://www.cashcows.club/ethereum/opensource" />
+    <meta property="og:image" content={`https://${cdn}/website/banner/banner-opensource.png`} />
+    <meta property="og:url" content={`https://${host}/ethereum/opensource`} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary" />
@@ -204,14 +199,14 @@ export const Head = () => (
     <meta name="twitter:title" content="Open Source Initiative | Cash Cows Club" />
     <meta name="twitter:description" content="The first full featured open source NFT collection found on GitHub and Ethereum" />
 
-    <meta name="twitter:image" content="https://www.cashcows.club/images/banner/banner-opensource.png" />
+    <meta name="twitter:image" content={`https://${cdn}/website/banner/banner-opensource.png`} />
   </HTMLHead>
 );
 
-export const Body: React.FC<PageProps> = props => (
+export const Body = () => (
   <main className="bg-black h-full relative overflow-auto">
     <Section1 />
-    <Section2 {...props} />
+    <Section2 />
     <Section3 />
   </main>
 );

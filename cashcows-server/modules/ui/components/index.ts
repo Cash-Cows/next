@@ -9,6 +9,7 @@ import Link from './Typography/Link';
 import Text from './Typography/Text';
 import Image from './Typography/Image';
 import PaperBox from './PaperBox';
+import TintedBox from './TintedBox';
 import Modal from './Modal';
 
 export { 
@@ -25,5 +26,6 @@ export {
   Badge, 
   PixelButton,
   PaperBox,
+  TintedBox,
   Modal
 };

@@ -12,6 +12,7 @@ import {
   Badge, 
   PixelButton,
   PaperBox,
+  TintedBox,
   Modal
 } from './components';
 
@@ -40,6 +41,7 @@ export {
   Badge, 
   PixelButton,
   PaperBox,
+  TintedBox,
   Modal,
   usePanelMenus, 
   useCrew, 

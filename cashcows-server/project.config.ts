@@ -2,6 +2,7 @@ import GoerliConfig from 'data/goerli.json';
 import EthereumConfig from 'data/ethereum.json';
 
 export const host = 'www.cashcows.club';
+export const api = 'api.cashcows.club';
 export const cdn = 'cdn.cashcows.club';
 
 export const networks = {

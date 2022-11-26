@@ -22,7 +22,7 @@ const MainMenu: React.FC<{
         <i className="text-yellow-500 fas fa-fw fa-face-grin-tongue-wink"></i>
         <span className="uppercase inline-block pl-2">Meme Database</span>
       </Link>
-      <Link className="block p-3 text-white border-b border-solid border-gray-900" href={`/${network}/leaders`}>
+      <Link className="block p-3 text-white border-b border-solid border-gray-900" href={`/${network}/leaderboard`}>
         <i className="text-yellow-500 fas fa-medal"></i>
         <span className="uppercase inline-block pl-2">Leaderboard</span>
       </Link>

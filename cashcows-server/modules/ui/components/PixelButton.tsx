@@ -2,6 +2,10 @@
 import type { PixelButtonProps } from '../types';
 //enums
 import { PixelButtonTypes, PixelButtonSizes } from '../enums';
+//components
+import Link from 'next/link';
+//config
+import { cdn } from 'project.config';
 
 const PixelButton: React.FC<PixelButtonProps> = props => {
   const { 
@@ -9,7 +13,8 @@ const PixelButton: React.FC<PixelButtonProps> = props => {
     size = PixelButtonSizes.NORMAL, 
     font = 'pixel',
     className = '',
-    children 
+    children,
+    ...otherProps
   } = props;
 
   const styles = [
@@ -34,30 +39,34 @@ const PixelButton: React.FC<PixelButtonProps> = props => {
 
   switch(type) {
     case PixelButtonTypes.DEFAULT:
-      styles.push('bg-[url(/images/button/btn-secondary-center.png)]');
-      styles.push('before:bg-[url(/images/button/btn-secondary-left.png)]');
-      styles.push('after:bg-[url(/images/button/btn-secondary-right.png)]');
+      styles.push(`bg-pixel-btn-secondary-center`);
+      styles.push(`before:bg-pixel-btn-secondary-left`);
+      styles.push(`after:bg-pixel-btn-secondary-right`);
       break;
     case PixelButtonTypes.WARNING:
-      styles.push('bg-[url(/images/button/btn-warning-center.png)]');
-      styles.push('before:bg-[url(/images/button/btn-warning-left.png)]');
-      styles.push('after:bg-[url(/images/button/btn-warning-right.png)]');
+      styles.push(`bg-pixel-btn-warning-center`);
+      styles.push(`before:bg-pixel-btn-warning-left`);
+      styles.push(`after:bg-pixel-btn-warning-right`);
       break;
     case PixelButtonTypes.SUCCESS:
-      styles.push('bg-[url(/images/button/btn-success-center.png)]');
-      styles.push('before:bg-[url(/images/button/btn-success-left.png)]');
-      styles.push('after:bg-[url(/images/button/btn-success-right.png)]');
+      styles.push(`bg-pixel-btn-success-center`);
+      styles.push(`before:bg-pixel-btn-success-left`);
+      styles.push(`after:bg-pixel-btn-success-right`);
       break;
   }
 
   styles.push(className);
-  const buttonProps = Object.assign({}, props) as Record<string, any>
-  delete buttonProps.type
-  delete buttonProps.size
-  delete buttonProps.className
-  delete buttonProps.children
 
-  return <button className={styles.join(' ')} {...buttonProps}>{children}</button>;
+  if (otherProps.href) {
+    if (otherProps.href.indexOf('/') === 0) {
+      const { href, linkProps } = otherProps;
+      return <Link className={styles.join(' ')} href={href} {...linkProps}>{children}</Link>;
+    }
+
+    return <a className={styles.join(' ')} {...otherProps}>{children}</a>;
+  }
+
+  return <button className={styles.join(' ')} {...otherProps}>{children}</button>;
 };
 
 export default PixelButton;
