@@ -5,8 +5,7 @@ import { useState, useEffect } from 'react';
 //config
 import { cdn } from 'project.config';
 //web3
-import { provider } from 'modules/web3';
-import { ethers } from 'ethers';
+import { read } from 'modules/web3';
 
 const hidden = {
   crew: false,
@@ -31,13 +30,8 @@ export function useAvatar(network: NetworkConfig, address: string) {
   const [ avatar, setAvatar ] = useState(`https://${cdn}/website/about/cow-bored.png`);
   useEffect(() => {
     (async () => {
-      const contract = new ethers.Contract(
-        network.contracts.index.address, 
-        network.contracts.index.abi, 
-        provider({ chainId: network.id })
-      );
   
-      const tokens = await contract.ownerTokens(
+      const tokens = await read(network, 'index').ownerTokens(
         network.contracts.crew.address, 
         address,
         4030

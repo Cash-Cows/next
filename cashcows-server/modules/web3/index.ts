@@ -7,11 +7,22 @@ import {
   provider 
 } from './config';
 
+import {
+  toBigNumber,
+  toEther,
+  read,
+  write
+} from './utils'
+
 export { 
   networks, 
   useWeb3, 
   NetworkNames, 
   Web3Context, 
   Web3Config, 
-  provider 
+  provider,
+  toBigNumber,
+  toEther,
+  read,
+  write
 };

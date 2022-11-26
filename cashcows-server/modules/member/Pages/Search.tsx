@@ -13,7 +13,7 @@ import { HTMLHead, H1, H2, PixelButton, TintedBox } from 'modules/ui';
 import { api, cdn, host } from 'project.config';
 //others
 import axios from 'axios';
-import { toEther } from 'modules/web3/utils';
+import { toEther } from 'modules/web3';
 
 export const Head = () => (
   <HTMLHead>
