@@ -4,7 +4,7 @@ import { useWeb3 } from 'modules/web3';
 import { usePanelPage } from '../../hooks';
 //components
 import { ToastContainer } from 'react-toastify';
-import notify from '../../notify';
+import { notify, ModalProvider } from '../../components';
 
 import Header from './Header';
 import MainMenu from './MainMenu';
@@ -40,6 +40,7 @@ const LayoutPanelPage: React.FC<{
       <section className="dark:bg-gray-800 dark:text-white absolute top-16 bottom-0 left-0 right-0">
         {props.children}
       </section>
+      <ModalProvider />
       <ToastContainer />
     </section>
   )

@@ -152,7 +152,6 @@ export const Web3Provider: React.FC<{
       {children}
     </Web3Context.Provider>
   );
-
 };
 
 /**

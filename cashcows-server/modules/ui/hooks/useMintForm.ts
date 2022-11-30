@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useSigner } from 'wagmi';
 import axios from 'axios';
 //local
-import notify from '../notify';
+import notify from '../components/global/notify';
 
 export default function useMintForm(
   address: string | undefined,

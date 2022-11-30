@@ -23,6 +23,7 @@ module.exports = {
         cribs: 'url(https://cdn.cashcows.club/website/background/bg-cribs.png)',
         leaderboard: 'url(https://cdn.cashcows.club/website/background/bg-leader.gif)',
         member: 'url(https://cdn.cashcows.club/website/background/bg-member.png)',
+        transblock: 'url(https://cdn.cashcows.club/website/background/bg-transparent.jpg)',
         soon: 'url(https://cdn.cashcows.club/website/background/bg-soon.png)',
         dirt1: 'url(https://cdn.cashcows.club/website/about/dirt-1.png)',
         dirt2: 'url(https://cdn.cashcows.club/website/about/dirt-2.png)',

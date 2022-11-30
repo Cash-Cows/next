@@ -10,6 +10,7 @@ import {
 import {
   toBigNumber,
   toEther,
+  getNetwork,
   read,
   write
 } from './utils'
@@ -23,6 +24,7 @@ export {
   provider,
   toBigNumber,
   toEther,
+  getNetwork,
   read,
   write
 };

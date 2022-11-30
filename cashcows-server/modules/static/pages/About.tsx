@@ -9,10 +9,8 @@ import {
   PixelButton, 
   Heading, 
   PaperBox,
-  Modal
+  modal
 } from 'modules/ui';
-//hooks
-import { useAboutModals } from '../hooks';
 //config
 import { cdn, host } from 'project.config';
 import EthereumConfig from 'data/ethereum.json';
@@ -114,41 +112,11 @@ const Section2 = ({ redeemed, unclaimed }: AboutPageProps) => {
 };
 
 const Section3 = () => {
-  const { toggles, open, close } = useAboutModals();
-  return (
-    <>
-      <section>
-        <div className="container m-auto py-10">
-          <Heading level="2" font="pixel" size="xl" color="yellow-500" className="pb-5 text-center">
-            Cash Cows Game
-          </Heading>
-          <p className="text-sm text-center pb-5">
-            Designed for the Tycoon in mind. Earn $MILK, get LOOT, choose a 
-            Hustle, buy a Crib, brag to your friends.
-          </p>
-          <PaperBox className="p-4 max-w-xl m-auto">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1500 1920" preserveAspectRatio="xMinYMin meet">
-              <image width="1500" height="1920" xlinkHref={`https://${cdn}/website/map.png`}></image>
-              <a title="The Barn" onClick={open.barn} className="cursor-pointer">
-                <rect x="300" y="1500" width="600" height="250" fill="#FFFFFF" opacity="0"></rect>
-              </a>
-              <a title="Farmers Market" onClick={open.market} className="cursor-pointer">
-                <rect x="550" y="1120" width="800" height="202" fill="#FFFFFF" opacity="0"></rect>
-              </a>
-              <a title="Loot Store" onClick={open.loot} className="cursor-pointer">
-                <rect x="302" y="810" width="676" height="202" fill="#FFFFFF" opacity="0"></rect>
-              </a>
-              <a title="The Hustle" onClick={open.hustle} className="cursor-pointer">
-                <rect x="470" y="400" width="930" height="202" fill="#FFFFFF" opacity="0"></rect>
-              </a>
-              <a title="Cribs" onClick={open.cribs} className="cursor-pointer">
-                <rect x="500" y="100" width="620" height="250" fill="#FFFFFF" opacity="0"></rect>
-              </a>
-            </svg>
-          </PaperBox>
-        </div>
-      </section>
-      <Modal open={toggles.barn} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
+  const show = {
+    barn: () => {
+      modal.className('border-yellow-500 border-4 bg-black px-4 pb-4 pt-2 text-white');
+      modal.body(
+        <>
           <img alt="the barn" src={`https://${cdn}/website/about/about-bg-barn.png`} />
           <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
             The Barn
@@ -158,54 +126,113 @@ const Section3 = () => {
             your cow. $MILK can be redeemed by the second. Some cow crews 
             yield more $MILK than others.
           </p>
-      </Modal>
-      <Modal open={toggles.market} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="farmers market" src={`https://${cdn}/website/about/about-bg-market.png`} />
-        <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
-          Farmers Market
+        </>
+      );
+      modal.open();
+    },
+    market: () => {
+      modal.className('border-yellow-500 border-4 bg-black px-4 pb-4 pt-2 text-white');
+      modal.body(
+        <>
+          <img alt="farmers market" src={`https://${cdn}/website/about/about-bg-market.png`} />
+          <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
+            Farmers Market
+          </Heading>
+          <p className="text-sm leading-8">
+            Once you collect enough $MILK, you go to the Farmers Market to 
+            sell it. Some cow crews are more skilled at selling $MILK than
+            others.
+          </p>
+        </>
+      );
+      modal.open();
+    },
+    loot: () => {
+      modal.className('border-yellow-500 border-4 bg-black px-4 pb-4 pt-2 text-white');
+      modal.body(
+        <>
+          <img alt="loot store" src={`https://${cdn}/website/about/about-bg-loot.png`} />
+          <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
+            Loot Store
+          </Heading>
+          <p className="text-sm leading-8">
+            Welcome to Rodeo Drive. An exclusive access to the stores of the
+            rich and wealthy. Most items can be purchased with our in game 
+            coin, $DOLLA. Some items can be acquired exclusively with ETH. 
+            And some items are limited supply. 
+          </p>
+        </>
+      );
+      modal.open();
+    },
+    hustle: () => {
+      modal.className('border-yellow-500 border-4 bg-black px-4 pb-4 pt-2 text-white');
+      modal.body(
+        <>
+          <img alt="the hustle" src={`https://${cdn}/website/about/about-bg-hustle.png`} />
+          <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
+            The Hustle
+          </Heading>
+          <p className="text-sm leading-8">
+            Welcome to South of Market. A street where you can buy 
+            businesses to earn more $DOLLA monthly. These Hustles will help 
+            you acquire the best of the best Loot.
+          </p>
+        </>
+      );
+      modal.open();
+    },
+    cribs: () => {
+      modal.className('border-yellow-500 border-4 bg-black px-4 pb-4 pt-2 text-white');
+      modal.body(
+        <>
+          <img alt="cash cows cribs" src={`https://${cdn}/website/about/about-bg-cribs.png`} />
+          <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
+            Cribs
+          </Heading>
+          <p className="text-sm leading-8">
+            Welcome to Boardwalk where you can live lavishly next to the 
+            rich and famous. This is a special collection that contains a 
+            unique mini-metaverse all inside the NFT. Invite your friends, 
+            showcase your loot. Earn your bragging rights.
+          </p>
+        </>
+      );
+      modal.open();
+    }
+  };
+  return (
+    <section>
+      <div className="container m-auto py-10">
+        <Heading level="2" font="pixel" size="xl" color="yellow-500" className="pb-5 text-center">
+          Cash Cows Game
         </Heading>
-        <p className="text-sm leading-8">
-          Once you collect enough $MILK, you go to the Farmers Market to 
-          sell it. Some cow crews are more skilled at selling $MILK than
-          others.
+        <p className="text-sm text-center pb-5">
+          Designed for the Tycoon in mind. Earn $MILK, get LOOT, choose a 
+          Hustle, buy a Crib, brag to your friends.
         </p>
-      </Modal>
-      <Modal open={toggles.loot} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="loot store" src={`https://${cdn}/website/about/about-bg-loot.png`} />
-        <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
-          Loot Store
-        </Heading>
-        <p className="text-sm leading-8">
-          Welcome to Rodeo Drive. An exclusive access to the stores of the
-          rich and wealthy. Most items can be purchased with our in game 
-          coin, $DOLLA. Some items can be acquired exclusively with ETH. 
-          And some items are limited supply. 
-        </p>
-      </Modal>
-      <Modal open={toggles.hustle} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="the hustle" src={`https://${cdn}/website/about/about-bg-hustle.png`} />
-        <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
-          The Hustle
-        </Heading>
-        <p className="text-sm leading-8">
-          Welcome to South of Market. A street where you can buy 
-          businesses to earn more $DOLLA monthly. These Hustles will help 
-          you acquire the best of the best Loot.
-        </p>
-      </Modal>
-      <Modal open={toggles.cribs} onClose={close} className="border-yellow-500 border-4 bg-black p-4">
-        <img alt="cash cows cribs" src={`https://${cdn}/website/about/about-bg-cribs.png`} />
-        <Heading level="3" font="pixel" size="xl" color="yellow-500" className="py-5">
-          Cribs
-        </Heading>
-        <p className="text-sm leading-8">
-          Welcome to Boardwalk where you can live lavishly next to the 
-          rich and famous. This is a special collection that contains a 
-          unique mini-metaverse all inside the NFT. Invite your friends, 
-          showcase your loot. Earn your bragging rights.
-        </p>
-      </Modal>
-    </>
+        <PaperBox className="p-4 max-w-xl m-auto">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1500 1920" preserveAspectRatio="xMinYMin meet">
+            <image width="1500" height="1920" xlinkHref={`https://${cdn}/website/map.png`}></image>
+            <a title="The Barn" onClick={show.barn} className="cursor-pointer">
+              <rect x="300" y="1500" width="600" height="250" fill="#FFFFFF" opacity="0"></rect>
+            </a>
+            <a title="Farmers Market" onClick={show.market} className="cursor-pointer">
+              <rect x="550" y="1120" width="800" height="202" fill="#FFFFFF" opacity="0"></rect>
+            </a>
+            <a title="Loot Store" onClick={show.loot} className="cursor-pointer">
+              <rect x="302" y="810" width="676" height="202" fill="#FFFFFF" opacity="0"></rect>
+            </a>
+            <a title="The Hustle" onClick={show.hustle} className="cursor-pointer">
+              <rect x="470" y="400" width="930" height="202" fill="#FFFFFF" opacity="0"></rect>
+            </a>
+            <a title="Cribs" onClick={show.cribs} className="cursor-pointer">
+              <rect x="500" y="100" width="620" height="250" fill="#FFFFFF" opacity="0"></rect>
+            </a>
+          </svg>
+        </PaperBox>
+      </div>
+    </section>
   );
 };
 

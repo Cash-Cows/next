@@ -31,7 +31,7 @@ export function useAvatar(network: NetworkConfig, address: string) {
   useEffect(() => {
     (async () => {
   
-      const tokens = await read(network, 'index').ownerTokens(
+      const tokens = await read(network.name, 'index').ownerTokens(
         network.contracts.crew.address, 
         address,
         4030

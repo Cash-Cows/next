@@ -2,15 +2,17 @@ import HTMLHead from './HTMLHead';
 import Alert from './Alert';
 import Badge from './Badge';
 import PixelButton from './PixelButton';
-import Heading, { H1, H2, H3, H4, H5, H6 } from './Typography/Heading';
-import Blockquote from './Typography/Blockquote';
-import List, { ListItem } from './Typography/List';
-import Link from './Typography/Link';
-import Text from './Typography/Text';
-import Image from './Typography/Image';
+import Heading, { H1, H2, H3, H4, H5, H6 } from './typography/Heading';
+import Blockquote from './typography/Blockquote';
+import List, { ListItem } from './typography/List';
+import Link from './typography/Link';
+import Text from './typography/Text';
+import Image from './typography/Image';
 import PaperBox from './PaperBox';
 import TintedBox from './TintedBox';
 import Modal from './Modal';
+import notify from './global/notify';
+import modal, { ModalProvider } from './global/modal';
 
 export { 
   HTMLHead, 
@@ -27,5 +29,8 @@ export {
   PixelButton,
   PaperBox,
   TintedBox,
-  Modal
+  Modal,
+  notify,
+  modal,
+  ModalProvider
 };

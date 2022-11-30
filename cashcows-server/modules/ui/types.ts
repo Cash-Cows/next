@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { 
   AlertTypes, 
   AlertLayouts, 
@@ -9,11 +10,24 @@ import {
 
 export type RankedData = {
   edition: number,
+  characterId: string,
   score: number,
   rank: number,
   images: string[],
-  attributes: Record<string, Record<string, string|number>>
-}
+  attributes: Record<string, {
+    value: string|number,
+    score: number,
+    occurances: number
+  }>,
+  rates: Record<string, {
+    rate: string,
+    proof: string
+  }>,
+  loot: Record<string, Record<string, {
+    price: string,
+    proof: string
+  }>>
+};
 
 export type Metadata = {
   updated: number,
@@ -142,4 +156,13 @@ export type PixelButtonProps = Record<string, any> & {
   className?: string,
   href?: string,
   children: React.ReactNode
+};
+
+export type ModalProps = {
+  opened: boolean,
+  body: Function,
+  open: Function, 
+  close: Function,
+  style: Function,
+  title: Function
 };

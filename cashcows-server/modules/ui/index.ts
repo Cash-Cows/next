@@ -13,7 +13,10 @@ import {
   PixelButton,
   PaperBox,
   TintedBox,
-  Modal
+  Modal,
+  notify,
+  modal,
+  ModalProvider
 } from './components';
 
 import {
@@ -24,8 +27,6 @@ import {
 } from './hooks';
 
 import LayoutPanelPage from './layouts/PanelPage';
-
-import notify from './notify';
 
 export {
   HTMLHead, 
@@ -46,5 +47,7 @@ export {
   useMintForm, 
   usePanelPage,
   LayoutPanelPage,
-  notify
+  notify,
+  modal,
+  ModalProvider
 };

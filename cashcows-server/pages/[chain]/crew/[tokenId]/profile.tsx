@@ -1,10 +1,19 @@
+//types
+import type { MarketplaceDetailProps } from 'modules/marketplace/types';
+//components
 import { LayoutPanelPage } from 'modules/ui';
 import { Detail } from 'modules/marketplace';
 
-const { Head, Body } = Detail;
+const { Head, Body, getServerSideProps } = Detail;
 
-const Page = () => (
-  <LayoutPanelPage head={Head}><Body /></LayoutPanelPage>
+const HeadWrap = (props: MarketplaceDetailProps) => {
+  return () => (<Head {...props} />);
+};
+
+const Page: React.FC<MarketplaceDetailProps> = props => (
+  <LayoutPanelPage head={HeadWrap(props)}><Body {...props} /></LayoutPanelPage>
 );
 
 export default Page;
+
+export { getServerSideProps };
