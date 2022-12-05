@@ -6,35 +6,8 @@ import { useSigner } from 'wagmi';
 import useCulling from './useCulling';
 import useLoot from './useLoot';
 import useReward from './useReward';
-
-const currencies = [
-  'eth', 'weth', 'usdc', 
-  'link', 'uni', 'ape', 
-  'sand', 'mana', 'gala'
-];
-
-const quotes = [
-  'I thought you loved moo.',
-  'Moo! Don\'t do it!',
-  'Do you want Sacowfice me?',
-  'I thought we had something together.',
-  'I thought we would grow old together.',
-  'Bitch Im a cow. Moo0ooOoove!',
-  'Moo. Get rich or die trying...',
-  'Buh Bye.',
-  'Let\'s get rich together?',
-  'Moo. I dare you.',
-  'Moo! Do not press that button.',
-  'Why me?!?',
-  'My milkshake brings all the ETH to the barn.',
-  'I have special perks in the end.',
-  'What did I do wrong?',
-  'I\'m heart broken.',
-  'No. Your not worthy.',
-  'What did I do to you?',
-  'You will not receive 1 steak.',
-  'Burn me later for 2 steaks...'
-];
+//config
+import { currencies, quotes } from 'project.config';
 
 const closed = {
   traits: false,

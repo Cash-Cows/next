@@ -1,11 +1,9 @@
-import useCrew from './useCrew';
 import useMintForm from './useMintForm';
 import usePanelMenus from './usePanelMenus';
-import usePanelPage from './usePanelPage';
+import useSessionCrews from './useSessionCrews';
 
 export { 
   usePanelMenus, 
-  useCrew, 
-  useMintForm, 
-  usePanelPage
+  useSessionCrews, 
+  useMintForm
 };

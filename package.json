@@ -5,6 +5,7 @@
     "cashcows-contracts",
     "cashcows-discord", 
     "cashcows-gifengine",
-    "cashcows-server"
+    "cashcows-server",
+    "cashcows-next"
   ]
 }

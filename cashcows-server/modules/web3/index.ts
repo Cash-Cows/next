@@ -10,6 +10,7 @@ import {
 import {
   toBigNumber,
   toEther,
+  getContract,
   getNetwork,
   read,
   write
@@ -24,6 +25,7 @@ export {
   provider,
   toBigNumber,
   toEther,
+  getContract,
   getNetwork,
   read,
   write

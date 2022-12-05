@@ -10,48 +10,49 @@ import notify from '../components/global/notify';
 
 export default function useMintForm(
   address: string | undefined,
-  network: NetworkConfig, 
-  crews: RankedData[]
+  network: NetworkConfig
 ) {
   //track everytime we pull a new floor list
-  const [ floor, setFloor ] = useState<FloorItem[]>([]);
-  //mint amount (qty) state, used to update UI in form
-  const [ mintAmount, setMintAmount ] = useState(1);
-  //total mint price state, used to update UI in form
-  const [ totalPrice, setTotalPrice ] = useState(0);
+  const [ floorItems, setFloorItems ] = useState<FloorItem[]>([]);
+  //mint amount (qty) state and total mint price state, used to update UI in form
+  const [ fields, setFields ] = useState({ mintAmount: 1, totalPrice: 0 });
   //get the ethers signer for when we buy
   const { data: signer } = useSigner();
 
   //handler to add mint amount
   const addAmount = () => {
     //only add if the current amount is less than the floor items count
-    if (mintAmount < floor.length) {
+    if (fields.mintAmount < floorItems.length) {
       //set mint amount
-      const amount = mintAmount + 1;
-      setMintAmount(amount);
+      const mintAmount = fields.mintAmount + 1;
       //re add up all the prices again
-      let price = 0;
-      for (let i = 0; i < amount && i < floor.length; i++) {
-        price += (floor as FloorItem[])[i].market.floorAsk.price.amount.decimal;
+      let totalPrice = 0;
+      for (let i = 0; i < mintAmount && i < floorItems.length; i++) {
+        totalPrice += floorItems[i].market.floorAsk.price.amount.decimal;
       }
       //update the total price
-      setTotalPrice(parseFloat(price.toFixed(6)));
+      setFields({ 
+        mintAmount: mintAmount, 
+        totalPrice: parseFloat(totalPrice.toFixed(6)) 
+      });
     }
   };
   //handler to less mint amount
   const lessAmount = () => {
     //only less if the current amount is more than 1
-    if (mintAmount > 1) {
+    if (fields.mintAmount > 1) {
       //set mint amount
-      const newAmount = mintAmount - 1;
-      setMintAmount(newAmount);
+      const mintAmount = fields.mintAmount - 1;
       //re add up all the prices again
-      let price = 0;
-      for (let i = 0; i < newAmount && i < floor.length; i++) {
-        price += (floor as FloorItem[])[i].market.floorAsk.price.amount.decimal;
+      let totalPrice = 0;
+      for (let i = 0; i < mintAmount && i < floorItems.length; i++) {
+        totalPrice += floorItems[i].market.floorAsk.price.amount.decimal;
       }
       //update the total price
-      setTotalPrice(parseFloat(price.toFixed(6)));
+      setFields({ 
+        mintAmount: mintAmount, 
+        totalPrice: parseFloat(totalPrice.toFixed(6)) 
+      });
     }
   };
   //handler to buy items
@@ -63,10 +64,8 @@ export default function useMintForm(
     //collect all the tokens up to the mint 
     //amount, respective of the floor list
     const tokens = [];
-    for (let i = 0; i < mintAmount && i < floor.length; i++) {
-      tokens.push(`${network.contracts.crew.address}:${
-        (floor as FloorItem[])[i].token.tokenId
-      }`);
+    for (let i = 0; i < fields.mintAmount && i < floorItems.length; i++) {
+      tokens.push(`${network.contracts.crew.address}:${floorItems[i].token.tokenId}`);
     }
 
     //if for some reason there are no tokens
@@ -116,7 +115,7 @@ export default function useMintForm(
 
   useEffect(() => {
     //if connected and no crews, try to load the floor list
-    if (address && !crews.length) {
+    if (address) {
       //collect parameters as specified by reservoir
       const params = new URLSearchParams();
       params.set('collection', network.contracts.crew.address)
@@ -137,26 +136,21 @@ export default function useMintForm(
           }
         );
         //update the floor list
-        setFloor(tokens);
-        //if there are tokens and mint amount is 1
-        if (tokens.length && mintAmount === 1) {
-          //update the total price too
-          setTotalPrice(tokens[0].market.floorAsk.price.amount.decimal);
-        } 
+        setFloorItems(tokens);
       });
       return;
     }
     //if no account or crew length, purge 
     //the floor list to semi allow updates 
-    setFloor([]);
-  }, [ crews.length ]);
+    setFloorItems([]);
+  }, []);
 
   return {
-    mintAmount,
-    totalPrice,
+    mintAmount: fields.mintAmount,
+    totalPrice: fields.totalPrice,
     addAmount,
     lessAmount,
     buyItems,
-    floor
+    floorItems
   };
 };

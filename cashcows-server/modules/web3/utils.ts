@@ -21,6 +21,11 @@ export function toEther(wei: any, fixed: number = 6) {
   );
 };
 
+export function getContract(chain: string, contract: string) {
+  const network = getNetwork(chain);
+  return network.contracts[contract];
+};
+
 export function getNetwork(chain: string): NetworkConfig {
   return networks[chain as NetworkNames];
 }

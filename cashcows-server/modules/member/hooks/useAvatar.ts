@@ -7,30 +7,10 @@ import { cdn } from 'project.config';
 //web3
 import { read } from 'modules/web3';
 
-const hidden = {
-  crew: false,
-  milk: false,
-  dolla: false
-};
-
-export function useTabs() {
-  const [ toggles, setToggles ] = useState(
-    Object.assign({}, hidden, { crew: true })
-  );
-  const show = {
-    crew: () => setToggles(Object.assign({}, hidden, { crew: true })),
-    milk: () => setToggles(Object.assign({}, hidden, { milk: true })),
-    dolla: () => setToggles(Object.assign({}, hidden, { dolla: true }))
-  };
-
-  return { toggles, show };
-};
-
-export function useAvatar(network: NetworkConfig, address: string) {
+export default function useAvatar(network: NetworkConfig, address: string) {
   const [ avatar, setAvatar ] = useState(`https://${cdn}/website/about/cow-bored.png`);
   useEffect(() => {
     (async () => {
-  
       const tokens = await read(network.name, 'index').ownerTokens(
         network.contracts.crew.address, 
         address,
@@ -45,4 +25,4 @@ export function useAvatar(network: NetworkConfig, address: string) {
     })();
   }, []);
   return avatar;
-}
+};

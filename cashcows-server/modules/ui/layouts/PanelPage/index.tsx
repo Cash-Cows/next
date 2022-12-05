@@ -1,7 +1,7 @@
 //hooks
 import { useEffect } from 'react';
 import { useWeb3 } from 'modules/web3';
-import { usePanelPage } from '../../hooks';
+import { usePanelMenus } from '../../hooks';
 //components
 import { ToastContainer } from 'react-toastify';
 import { notify, ModalProvider } from '../../components';
@@ -16,11 +16,8 @@ const LayoutPanelPage: React.FC<{
   children?: React.ReactNode
 }> = props => {
   //get all the aggregated web3 hooks
-  const web3 = useWeb3();
-  const { network, account, status } = web3;
-  //get all the aggregated panel hooks
-  const panel = usePanelPage(account.address, network.config);
-  const { main, user } = panel.panel;
+  const { status } = useWeb3();
+  const { main, user } = usePanelMenus();
   //any time the error changes, notify it
   useEffect(() => {
     if (status.error) {
@@ -36,7 +33,7 @@ const LayoutPanelPage: React.FC<{
         toggleUserMenu={() => user.toggle()}
       />
       <MainMenu open={main.opened} />
-      <UserMenu open={user.opened} web3={web3} panel={panel} />
+      <UserMenu open={user.opened} />
       <section className="dark:bg-gray-800 dark:text-white absolute top-16 bottom-0 left-0 right-0">
         {props.children}
       </section>

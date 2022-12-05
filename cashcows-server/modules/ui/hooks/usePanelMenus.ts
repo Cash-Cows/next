@@ -1,38 +1,28 @@
 import { useState } from 'react'; 
 
 export default function usePanelMenus() {
-  //remember main meny open/close states
-  const [ mainMenuOpened, openMainMenu ] = useState(false);
-  //remember user meny open/close states
-  const [ userMenuOpened, openUserMenu ] = useState(false);
+  const [menuStates, setMenuStates ] = useState({
+    mainMenuOpened: false,
+    userMenuOpened: false
+  });
   //open or close the main menu
-  const toggleMainMenu = () => {
-    //open or close the main menu
-    openMainMenu(!mainMenuOpened);
-    //if the main menu is open
-    if (!mainMenuOpened) {
-      //close the user menu
-      openUserMenu(false);
-    }
-  };
+  const toggleMainMenu = () => setMenuStates({
+    mainMenuOpened: !menuStates.mainMenuOpened,
+    userMenuOpened: false
+  });
   //open or close the user menu
-  const toggleUserMenu = () => {
-    //open or close the user menu
-    openUserMenu(!userMenuOpened);
-    //if the user menu is open
-    if (!userMenuOpened) {
-      //close the main menu
-      openMainMenu(false);
-    }
-  };
+  const toggleUserMenu = () => setMenuStates({
+    mainMenuOpened: false,
+    userMenuOpened: !menuStates.userMenuOpened
+  });
 
   return {
     main: {
-      opened: mainMenuOpened,
+      opened: menuStates.mainMenuOpened,
       toggle: toggleMainMenu
     },
     user: {
-      opened: userMenuOpened,
+      opened: menuStates.userMenuOpened,
       toggle: toggleUserMenu
     }
   };

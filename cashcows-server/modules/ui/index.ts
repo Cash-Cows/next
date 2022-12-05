@@ -21,9 +21,8 @@ import {
 
 import {
   usePanelMenus, 
-  useCrew, 
-  useMintForm, 
-  usePanelPage
+  useSessionCrews, 
+  useMintForm
 } from './hooks';
 
 import LayoutPanelPage from './layouts/PanelPage';
@@ -43,9 +42,8 @@ export {
   TintedBox,
   Modal,
   usePanelMenus, 
-  useCrew, 
+  useSessionCrews, 
   useMintForm, 
-  usePanelPage,
   LayoutPanelPage,
   notify,
   modal,

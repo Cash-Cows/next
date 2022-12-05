@@ -5,7 +5,7 @@ import type { LeaderboardRow, LeaderboardProps } from '../types';
 import { PixelButtonTypes, PixelButtonSizes } from 'modules/ui/enums';
 //hooks
 import { useWeb3 } from 'modules/web3';
-import { useTabs, useAvatar } from '../hooks';
+import { useLeaderTabs, useAvatar } from '../hooks';
 //components
 import Link from 'next/link';
 import { HTMLHead, H1, H2, PixelButton, TintedBox } from 'modules/ui';
@@ -85,12 +85,12 @@ const Row: React.FC<{
         : rank
       }</td>
       <td className="text-center p-5 border-b border-b-black">
-        <Link href={`/${network.name}/member/?address=${leader.address}`}>
+        <Link href={`/${network.name}/member/${leader.address}`}>
           <img alt={`Member ${leader.address} image`} src={avatar} className="w-16 rounded-full inline-block" />
         </Link>
       </td>
       <td className="text-center p-5 border-b border-b-black">
-        <Link href={`/${network.name}/member/?address=${leader.address}`} className="underline font-bold">
+        <Link href={`/${network.name}/member/${leader.address}`} className="underline font-bold">
           {leader.address.substring(0, 4)}...{leader.address.substring(leader.address.length - 4)}
         </Link>
       </td>
@@ -126,7 +126,7 @@ const Content: React.FC<{
 
 export const Body: React.FC<LeaderboardProps> = ({ boards }) => {
   const { network } = useWeb3();
-  const { toggles, show } = useTabs();
+  const { toggles, show } = useLeaderTabs();
   return (
     <main className="bg-leaderboard bg-no-repeat bg-cover bg-center h-full relative overflow-auto">
       <Tabs toggles={toggles} show={show} />
