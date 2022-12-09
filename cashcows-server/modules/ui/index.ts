@@ -20,6 +20,7 @@ import {
 } from './components';
 
 import {
+  useTaskQueue,
   usePanelMenus, 
   useSessionCrews, 
   useMintForm
@@ -41,6 +42,7 @@ export {
   PaperBox,
   TintedBox,
   Modal,
+  useTaskQueue,
   usePanelMenus, 
   useSessionCrews, 
   useMintForm, 

@@ -28,20 +28,20 @@ const toFixedNumber = (number: number, length = 6) => {
 
 export const Head: React.FC<MemberProps> = ({ address }) => (
   <HTMLHead>
-    <title>TODO</title>
-    <meta name="description" content="Cash Cows is an upcoming blue chip alpha NFT club and a collection of 4,000 PFPs entering the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
+    <title>Member Achievements | {address} | Cash Cows Club</title>
+    <meta name="description" content="Support the Cash Cow Club members as they earn rewards, get loot and progress through the Metaverse." />
     
-    <meta property="og:title" content="Cash Cows Club - NFT, Loots, Memes, Metaverse" />
-    <meta property="og:description" content="Cash Cows is an upcoming blue chip alpha NFT club and a collection of 4,000 PFPs entering the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
-    <meta property="og:image" content={`https://${cdn}/website/images/banner/banner-home.png`} />
+    <meta property="og:title" content={`Member Achievements | ${address} | Cash Cows Club`} />
+    <meta property="og:description" content="Support the Cash Cow Club members as they earn rewards, get loot and progress through the Metaverse." />
+    <meta property="og:image" content={`https://${cdn}/website/pfp/pfp-genesis.png`} />
     <meta property="og:url" content={`https://${host}/`} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@wearecashcows" />
-    <meta name="twitter:title" content="Cash Cows Club - NFT, Loots, Memes, Metaverse" />
-    <meta name="twitter:description" content="Cash Cows is an upcoming blue chip alpha NFT club and a collection of 4,000 PFPs entering the Metaverse. Free mint a cash cow. Make icon memes. Earn loot." />
-    <meta name="twitter:image" content={`https://${cdn}/website/images/banner/banner-home.png`} />
+    <meta name="twitter:title" content={`Member Achievements | ${address} | Cash Cows Club`} />
+    <meta name="twitter:description" content="Support the Cash Cow Club members as they earn rewards, get loot and progress through the Metaverse." />
+    <meta name="twitter:image" content={`https://${cdn}/website/pfp/pfp-genesis.png`} />
   </HTMLHead>
 );
 

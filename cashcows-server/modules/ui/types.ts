@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { 
   AlertTypes, 
   AlertLayouts, 
@@ -7,6 +6,16 @@ import {
   PixelButtonTypes,
   PixelButtonSizes
 } from './enums';
+
+export type Task = () => Promise<void> | void;
+export type QueueState = {
+  tasks: ReadonlyArray<Task>
+  running: boolean
+};
+export type TaskState = QueueState & {
+  purge: () => void,
+  queue: (task: Task) => void
+};
 
 export type RankedData = {
   edition: number,
