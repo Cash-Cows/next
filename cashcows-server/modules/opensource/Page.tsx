@@ -1,7 +1,7 @@
 //hooks
 import { useWeb3 } from 'modules/web3';
 //components
-import { HTMLHead, Heading } from 'modules/ui';
+import { HTMLHead, Heading } from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
 

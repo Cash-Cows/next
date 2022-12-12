@@ -1,7 +1,7 @@
 //types
 import type { LeaderboardProps } from 'modules/member/types';
 //components
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Search } from 'modules/member';
 
 const { Head, Body, getServerSideProps } = Search;

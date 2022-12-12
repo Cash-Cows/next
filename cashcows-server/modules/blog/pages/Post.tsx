@@ -12,7 +12,7 @@ import {
   Blockquote,
   Text,
   Image
-} from 'modules/ui';
+} from 'modules/common';
 import Link from 'next/link';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 //config

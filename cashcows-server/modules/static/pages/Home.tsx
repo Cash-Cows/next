@@ -1,7 +1,7 @@
 //enums
-import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
+import { PixelButtonSizes, PixelButtonTypes } from 'modules/common/enums';
 //components
-import { HTMLHead, PixelButton } from 'modules/ui';
+import { HTMLHead, PixelButton } from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
 

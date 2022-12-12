@@ -1,5 +1,5 @@
 //types
-import type { RankedData } from 'modules/ui/types';
+import type { RankedData } from 'modules/common/types';
 //global
 import { useEffect, useState } from 'react';
 import axios from 'axios';

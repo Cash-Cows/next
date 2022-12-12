@@ -1,7 +1,7 @@
 //types
 import type { MemberProps } from 'modules/member/types';
 //components
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Detail } from 'modules/member';
 
 const { Head, Body, getServerSideProps } = Detail;

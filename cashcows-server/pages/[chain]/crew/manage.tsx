@@ -1,4 +1,4 @@
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Manage } from 'modules/game';
 
 const { Head, Body } = Manage;

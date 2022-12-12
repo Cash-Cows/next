@@ -3,7 +3,7 @@ import React from 'react';
 import { useWeb3 } from 'modules/web3';
 import { useMemesFetch } from '../hooks';
 //components
-import { HTMLHead, Heading } from 'modules/ui';
+import { HTMLHead, Heading } from 'modules/common';
 import { Meme } from '../components';
 //config
 import { cdn, host } from 'project.config';

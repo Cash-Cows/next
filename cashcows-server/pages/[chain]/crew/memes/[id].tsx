@@ -1,4 +1,4 @@
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Detail } from 'modules/memes';
 
 const { Head, Body } = Detail;

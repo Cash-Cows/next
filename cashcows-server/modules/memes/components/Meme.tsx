@@ -1,11 +1,11 @@
 //types
 import type { MemeProps } from '../types';
 //enums
-import { BadgeTypes, BadgeLayouts } from 'modules/ui/enums';
+import { BadgeTypes, BadgeLayouts } from 'modules/common/enums';
 //hooks
 import { useState } from 'react';
 //components
-import { Badge, notify } from 'modules/ui';
+import { Badge, notify } from 'modules/common';
 //config
 import { api } from 'project.config';
 //others

@@ -3,7 +3,7 @@ import type { FetchSignerResult, Signer } from '@wagmi/core';
 //hooks
 import { useState, useEffect } from 'react';
 //others
-import { notify } from 'modules/ui';
+import { notify } from 'modules/common';
 import { toEther, getNetwork, read, write } from 'modules/web3';
 
 export default function useCulling(

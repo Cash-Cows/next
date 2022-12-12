@@ -2,7 +2,7 @@
 import type { PageProps } from 'modules/blog/types';
 
 //components
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Post } from 'modules/blog';
 
 const { Head, Body, getStaticPaths, getStaticProps } = Post;

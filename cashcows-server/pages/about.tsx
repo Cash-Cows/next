@@ -1,7 +1,7 @@
 //types
 import type { AboutPageProps } from 'modules/static/types';
 //components
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { About } from 'modules/static';
 
 const { Head, Body, getServerSideProps } = About;

@@ -1,5 +1,6 @@
-import GoerliConfig from 'data/goerli.json';
-import EthereumConfig from 'data/ethereum.json';
+import GoerliConfig from 'config/network/goerli.json';
+import EthereumConfig from 'config/network/ethereum.json';
+import CrewFilters from 'config/crew/filters.json';
 
 export const host = 'www.cashcows.club';
 export const api = 'api.cashcows.club';
@@ -57,3 +58,7 @@ export const quotes = [
   'You will not receive 1 steak.',
   'Burn me later for 2 steaks...'
 ];
+
+export const filters = {
+  crew: CrewFilters as Record<string, Record<string, number>>
+};

@@ -1,6 +1,6 @@
 import * as Search from './pages/Search';
 import * as Detail from './pages/Detail';
 
-import { useReward, useLoot, useCulling } from './hooks';
+import { useReward, useLoot, useCulling, useCollection } from './hooks';
 
-export { Search, Detail, useReward, useLoot, useCulling };
+export { Search, Detail, useReward, useLoot, useCulling, useCollection };

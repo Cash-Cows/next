@@ -1,4 +1,4 @@
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Hustle } from 'modules/game';
 
 const { Head, Body } = Hustle;

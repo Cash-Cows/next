@@ -1,5 +1,5 @@
 //components
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Head, Body } from 'modules/opensource';
 
 const Page = () => (

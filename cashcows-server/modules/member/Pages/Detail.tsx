@@ -1,17 +1,17 @@
 //types
 import type { GetServerSideProps } from 'next';
+import type { RankedData } from 'modules/common/types';
 import type { MemberProps, TrophyProps } from '../types';
 //enums
-import { BadgeTypes } from 'modules/ui/enums';
+import { BadgeTypes } from 'modules/common/enums';
 //hooks
 import { useWeb3 } from 'modules/web3';
 import { useMember, useMemberTabs } from '../hooks';
 //components
 import Link from 'next/link';
-import { HTMLHead, Heading, PaperBox, Badge } from 'modules/ui';
+import { HTMLHead, Heading, PaperBox, Badge } from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
-import { RankedData } from 'modules/ui/types';
 
 const toFixedNumber = (number: number, length = 6) => {
   const parts = number.toString().split('.')

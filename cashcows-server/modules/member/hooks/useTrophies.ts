@@ -1,6 +1,6 @@
 //types
 import type { NetworkConfig } from 'modules/web3/types';
-import type { RankedData } from 'modules/ui/types';
+import type { RankedData } from 'modules/common/types';
 import type { TrophyProps } from '../types';
 //hooks
 import { useState, useEffect } from 'react';

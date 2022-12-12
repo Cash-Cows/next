@@ -1,5 +1,5 @@
 //components
-import { HTMLHead } from 'modules/ui';
+import { HTMLHead } from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
 

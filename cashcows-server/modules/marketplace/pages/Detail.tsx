@@ -4,7 +4,7 @@ import type { GetServerSideProps } from 'next';
 import type { AccountProps, NetworkConfig } from 'modules/web3/types';
 import type { RankedData, LootData, RewardsHooks, MarketplaceDetailProps } from '../types';
 //enums
-import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
+import { PixelButtonSizes, PixelButtonTypes } from 'modules/common/enums';
 //hooks
 import { useWeb3 } from 'modules/web3';
 import { useProfile } from '../hooks';
@@ -17,7 +17,7 @@ import {
   PixelButton, 
   modal, 
   notify 
-} from 'modules/ui';
+} from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
 //others

@@ -2,7 +2,7 @@
 import type { MemeStates } from '../types';
 //hooks
 import { useEffect, useState } from 'react';
-import { useTaskQueue } from 'modules/ui';
+import { useTaskQueue } from 'modules/common';
 //config
 import { api } from 'project.config';
 //others

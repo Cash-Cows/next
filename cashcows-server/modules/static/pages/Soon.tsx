@@ -1,5 +1,5 @@
 //components
-import { HTMLHead, PaperBox } from 'modules/ui';
+import { HTMLHead, PaperBox } from 'modules/common';
 //config
 import { cdn, host } from 'project.config';
 

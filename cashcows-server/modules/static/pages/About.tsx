@@ -1,7 +1,7 @@
 //types
 import type { AboutPageProps } from '../types';
 //enums
-import { PixelButtonSizes, PixelButtonTypes } from 'modules/ui/enums';
+import { PixelButtonSizes, PixelButtonTypes } from 'modules/common/enums';
 //components
 import Script from 'next/script';
 import { 
@@ -10,10 +10,9 @@ import {
   Heading, 
   PaperBox,
   modal
-} from 'modules/ui';
+} from 'modules/common';
 //config
-import { cdn, host } from 'project.config';
-import EthereumConfig from 'data/ethereum.json';
+import { cdn, host, networks } from 'project.config';
 //others
 import { ethers } from 'ethers';
 import { toEther } from 'modules/web3/utils';
@@ -377,16 +376,16 @@ export const Body: React.FC<AboutPageProps> = ({ redeemed, unclaimed }) => (
 );
 
 export const getServerSideProps = async () => {
-  const provider = new ethers.providers.JsonRpcProvider(EthereumConfig.rpc.http);
+  const provider = new ethers.providers.JsonRpcProvider(networks.ethereum.rpc.http);
   const contract = new ethers.Contract(
-    EthereumConfig.contracts.royalty.address, 
-    EthereumConfig.contracts.royalty.abi, 
+    networks.ethereum.contracts.royalty.address, 
+    networks.ethereum.contracts.royalty.abi, 
     provider
   );
 
   const redeemed = toEther(await contract['totalReleased()']());
   const unclaimed = toEther(await provider.getBalance(
-    EthereumConfig.contracts.royalty.address
+    networks.ethereum.contracts.royalty.address
   ));
 
   return { props: { redeemed, unclaimed } };

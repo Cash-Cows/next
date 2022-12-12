@@ -1,4 +1,4 @@
-import { LayoutPanelPage } from 'modules/ui';
+import { LayoutPanelPage } from 'modules/common';
 import { Home } from 'modules/static';
 
 const { Head, Body } = Home;

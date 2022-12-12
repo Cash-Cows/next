@@ -2,13 +2,13 @@
 import type { NetworkConfig } from 'modules/web3/types';
 import type { LeaderboardRow, LeaderboardProps } from '../types';
 //enums
-import { PixelButtonTypes, PixelButtonSizes } from 'modules/ui/enums';
+import { PixelButtonTypes, PixelButtonSizes } from 'modules/common/enums';
 //hooks
 import { useWeb3 } from 'modules/web3';
 import { useLeaderTabs, useAvatar } from '../hooks';
 //components
 import Link from 'next/link';
-import { HTMLHead, H1, H2, PixelButton, TintedBox } from 'modules/ui';
+import { HTMLHead, H1, H2, PixelButton, TintedBox } from 'modules/common';
 //config
 import { api, cdn, host } from 'project.config';
 //others
