@@ -1,5 +1,5 @@
 //types
-import type { Attributes, SearchStates } from '../types';
+import type { Attributes, SearchStates, SearchResult } from '../types';
 //hooks
 import { useEffect, useState } from 'react';
 //others
@@ -7,23 +7,28 @@ import axios from 'axios';
 
 const reset: SearchStates = { 
   attributes: {}, 
-  start: 0, 
   range: 50, 
   sort: 'floorAskPrice',
   loading: false, 
   next: null,
+  continuation: null,
   results: [] 
 };
 
 export default function useCollection(contractAddress: string) {
   const [ collection, setCollection ] = useState<SearchStates>(reset);
-  const filter = (attributes: Attributes = {}, start = 0, range = 50) => {
+  const filter = (
+    attributes: Attributes = {}, 
+    sort = 'floorAskPrice', 
+    range = 50, 
+    next: string|null = null
+  ) => {
     if (JSON.stringify(attributes) !== JSON.stringify(collection.attributes)) {
-      setCollection({ ...reset, attributes, start, range });
+      setCollection({ ...reset, attributes, sort, range, next });
       return;
     }
 
-    setCollection({ ...collection, attributes, start, range });
+    setCollection({ ...collection, attributes, sort, range, next });
   };
 
   useEffect(() => {
@@ -31,7 +36,7 @@ export default function useCollection(contractAddress: string) {
       return;
     }
   
-    const { attributes, sort, start, range, next } = collection;
+    const { attributes, sort, range, next } = collection;
 
     const params = new URLSearchParams();
     params.set('collection', `0x.${contractAddress.substring(2)}`);
@@ -46,7 +51,7 @@ export default function useCollection(contractAddress: string) {
       params.set('continuation', next);
     }
 
-    const url = `https://api.cashcows.club/reservoir/tokens/v5?${
+    const url = `/api/marketplace/search?${
       decodeURIComponent(params.toString())
     }`;
 
@@ -54,11 +59,16 @@ export default function useCollection(contractAddress: string) {
 
     axios.get(url).then(response => setCollection(prev => ({ 
       ...prev, 
-      results: response.data.results.tokens,
-      next: response.data.results.continuation || null,
+      results: response.data.results,
+      continuation: response.data.next || null,
       loading: false
     })));
-  }, [ collection.attributes, collection.start, collection.range ]);
+  }, [ 
+    collection.attributes, 
+    collection.sort,
+    collection.next,
+    collection.range 
+  ]);
 
   return { ...collection, filter };
 };

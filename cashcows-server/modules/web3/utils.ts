@@ -46,3 +46,7 @@ export function write(chain: string, contract: string, provider: any) {
   const { address, abi } = network.contracts[contract];
   return new ethers.Contract(address, abi, signer);
 };
+
+export function toShortAddress(address: string) {
+  return `${address.substring(0, 4)}...${address.substring(address.length - 4)}`;
+}

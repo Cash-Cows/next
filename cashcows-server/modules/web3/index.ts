@@ -13,7 +13,8 @@ import {
   getContract,
   getNetwork,
   read,
-  write
+  write,
+  toShortAddress
 } from './utils'
 
 export { 
@@ -28,5 +29,6 @@ export {
   getContract,
   getNetwork,
   read,
-  write
+  write,
+  toShortAddress
 };

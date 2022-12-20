@@ -25,7 +25,8 @@ import {
   useTaskQueue,
   usePanelMenus, 
   useSessionCrews, 
-  useMintForm
+  useMintForm,
+  useBuyItems
 } from './hooks';
 
 import LayoutPanelPage from './layouts/PanelPage';
@@ -52,6 +53,7 @@ export {
   usePanelMenus, 
   useSessionCrews, 
   useMintForm, 
+  useBuyItems,
   LayoutPanelPage,
   notify,
   modal,

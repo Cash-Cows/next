@@ -1,6 +1,5 @@
 import type { MutableRefObject } from 'react';
 import type { RankedData } from 'modules/common/types';
-import { Market } from 'modules/game';
 
 export type Attributes = Record<string, string|number>;
 
@@ -93,15 +92,23 @@ export type SearchResultMarket = Record<string, any> & {
 
 export type SearchResult = Record<string, any> & {
   token: SearchResultToken,
-  market: SearchResultMarket
+  market: SearchResultMarket,
+  data: RankedData
 };
 
 export type SearchStates = {
   attributes: Attributes,
   sort: string,
-  start: number,
   range: number,
   loading: boolean,
   next: string|null,
+  continuation: string|null,
   results: SearchResult[]
 };
+
+export type FilterGroupProps = {
+  trait: string,
+  filters: Record<string, number>
+};
+
+export type FilterProps = { trait: string, value: string, count: number };

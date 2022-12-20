@@ -1,11 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "cashcows-artengine",
-    "cashcows-contracts",
-    "cashcows-discord", 
-    "cashcows-gifengine",
-    "cashcows-server",
-    "cashcows-next"
+    "types",
+    ""
   ]
 }
